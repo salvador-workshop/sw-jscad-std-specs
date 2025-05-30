@@ -13,7 +13,7 @@ const roofBuilder = ({ lib, swLib }) => {
     const { colorize } = lib.colors;
     const { measureDimensions } = lib.measurements;
 
-    const { moulds } = swLib;
+    const { moulds } = swLib.builders;
 
     const bottomTrim = ({ axisLength, rafterLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);

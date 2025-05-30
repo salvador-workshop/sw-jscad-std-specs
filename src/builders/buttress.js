@@ -11,7 +11,8 @@ const buttressBuilder = ({ lib, swLib }) => {
     const { align, translate } = lib.transforms;
     const { measureBoundingBox } = lib.measurements;
 
-    const { roofs, constants } = swLib;
+    const { constants } = swLib.core;
+    const { roofs } = swLib.builders;
 
     return {
         /**

@@ -14,10 +14,9 @@ const entrywayBuilder = ({ lib, swLib }) => {
     const { hull } = lib.hulls
 
     const {
-        errors,
         arches,
         walls,
-    } = swLib
+    } = swLib.builders
 
     return {
         /**
