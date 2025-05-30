@@ -9,11 +9,12 @@ const init = ({ lib }) => {
     }
 
     swJscad.utils = utilsModule.init({ lib, swLib: swJscad });
-    swJscad.builders = buildersCoreModule.init({ lib, swLib: swJscad });
 
+    const buildersCore = buildersCoreModule.init({ lib, swLib: swJscad });
+    const builders = buildersModule.init({ lib, swLib: { ...swJscad, builders: buildersCore } });
     swJscad.builders = {
-        ...swJscad.builders,
-        ...buildersModule.init({ lib, swLib: swJscad }),
+        ...buildersCore,
+        ...builders,
     }
 
     return swJscad;
