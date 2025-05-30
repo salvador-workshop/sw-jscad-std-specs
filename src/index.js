@@ -4,16 +4,19 @@ const buildersCoreModule = require('./builders-core');
 const buildersModule = require('./builders');
 
 const init = ({ lib }) => {
-    let swLib = { ...coreModule.init({ lib }) }
-    
-    // UX and utils are initialized first
-    swLib = { ...swLib, ...utilsModule.init({ lib, swLib }) }
+    const swJscad = {
+        core: coreModule.init({ lib }),
+    }
 
-    // Builders have access to SW utils functions
-    swLib = { ...swLib, ...buildersCoreModule.init({ lib, swLib }) }
-    swLib = { ...swLib, ...buildersModule.init({ lib, swLib }) }
+    swJscad.utils = utilsModule.init({ lib, swLib: swJscad });
+    swJscad.builders = buildersCoreModule.init({ lib, swLib: swJscad });
 
-    return swLib;
+    swJscad.builders = {
+        ...swJscad.builders,
+        ...buildersModule.init({ lib, swLib: swJscad }),
+    }
+
+    return swJscad;
 }
 
 module.exports = { init };
