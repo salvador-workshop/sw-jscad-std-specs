@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: internals</title>
+    <title>JSDoc: Source: families/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,100 +17,34 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: internals</h1>
+    <h1 class="page-title">Source: families/index.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            <span class="ancestors"><a href="core.html">core</a>.</span>internals</h2>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict"
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">...</div>
-        
+/**
+ * Families
+ * @namespace families
+ */
 
-        
+const init = ({ lib }) => {
+    const families = {
+        trimAranea: require('./trim-aranea').init({ lib }),
+    }
 
+    return families;
+}
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core_internals.js.html">core/internals.js</a>, <a href="core_internals.js.html#line3">line 3</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = { init };
+</code></pre>
+        </article>
+    </section>
 
 
 

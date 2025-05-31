@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: roofs</title>
+    <title>JSDoc: Namespace: foils</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: roofs</h1>
+    <h1 class="page-title">Namespace: foils</h1>
 
     
 
@@ -29,7 +29,7 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="builders.html">builders</a>.</span>roofs</h2>
+            <span class="ancestors"><a href="details.html">details</a>.</span>foils</h2>
         
     
 </header>
@@ -38,7 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description">...</div>
+            <div class="description">Builds "foil" shapes such as trefoils, quatrefoils, cinquefoils, etc. Input 2D profiles must be centred at (0, 0, 0)</div>
         
 
         
@@ -73,7 +73,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_roofs.js.html">builders/roofs.js</a>, <a href="builders_roofs.js.html#line3">line 3</a>
+        <a href="details_foils.js.html">details/foils.js</a>, <a href="details_foils.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -112,7 +112,7 @@
     
 
     
-    <h4 class="name" id="buildGableRoof"><span class="type-signature"></span>buildGableRoof<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="cinquefoil"><span class="type-signature"></span>cinquefoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -120,7 +120,7 @@
 
 
 <div class="description">
-    Builds a gable roof
+    Builds a cinquefoil opening using a given 2d cross-section profile
 </div>
 
 
@@ -198,53 +198,7 @@
 
         <tr>
             
-                <td class="name"><code>roofSpanSize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;number></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">[x,y] size of area to be spanned</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>roofOverhangSize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;number></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">[x,y] size for overhangs</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>roofPitch</code></td>
+                <td class="name"><code>radius</code></td>
             
 
             <td class="type">
@@ -260,14 +214,14 @@
 
             
 
-            <td class="description last">Roof pitch angle, expressed in radians</td>
+            <td class="description last">radius of container circle</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>roofAxis</code></td>
+                <td class="name"><code>lobeRadiusType</code></td>
             
 
             <td class="type">
@@ -283,20 +237,20 @@
 
             
 
-            <td class="description last">Main axis of roof</td>
+            <td class="description last">"inSlice", "halfRadius", "mean"</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>roofOpts</code></td>
+                <td class="name"><code>geomProfile</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;string></span>
+<span class="param-type">geom2.Geom2</span>
 
 
             
@@ -306,20 +260,20 @@
 
             
 
-            <td class="description last">Options like 'solid', 'noWall'</td>
+            <td class="description last">2D cross-section profile</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>wallThickness</code></td>
+                <td class="name"><code>cutCentre</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -329,7 +283,7 @@
 
             
 
-            <td class="description last">Wall thickness</td>
+            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
         </tr>
 
     
@@ -377,7 +331,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_roofs.js.html">builders/roofs.js</a>, <a href="builders_roofs.js.html#line64">line 64</a>
+        <a href="details_foils.js.html">details/foils.js</a>, <a href="details_foils.js.html#line194">line 194</a>
     </li></ul></dd>
     
 
@@ -402,16 +356,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    gable roof
-</div>
-
-
-
-    
 
 
 
@@ -423,7 +367,7 @@
     
 
     
-    <h4 class="name" id="buildHipRoof"><span class="type-signature"></span>buildHipRoof<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="octofoil"><span class="type-signature"></span>octofoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -431,7 +375,7 @@
 
 
 <div class="description">
-    Builds a hip roof
+    Builds an octofoil opening using a given 2d cross-section profile
 </div>
 
 
@@ -509,30 +453,7 @@
 
         <tr>
             
-                <td class="name"><code>roofSpanSize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;number></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">[x,y] size of area to be spanned</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>roofPitch</code></td>
+                <td class="name"><code>radius</code></td>
             
 
             <td class="type">
@@ -548,302 +469,14 @@
 
             
 
-            <td class="description last">Roof pitch angle, expressed in radians</td>
+            <td class="description last">radius of container circle</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>roofOpts</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;string></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Options like 'solid', 'noWall'</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>wallThickness</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Wall thickness</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_roofs.js.html">builders/roofs.js</a>, <a href="builders_roofs.js.html#line129">line 129</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    hip roof
-</div>
-
-
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="buildShedRoof"><span class="type-signature"></span>buildShedRoof<span class="signature">(opts)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Builds a shed roof
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>opts</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>roofSpanSize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;number></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">[x,y] size of area to be spanned</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>roofOverhangSize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;number></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">[x,y] size for overhangs</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>roofPitch</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Roof pitch angle, expressed in radians</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>roofAxis</code></td>
+                <td class="name"><code>lobeRadiusType</code></td>
             
 
             <td class="type">
@@ -859,20 +492,20 @@
 
             
 
-            <td class="description last">Main axis of roof</td>
+            <td class="description last">"inSlice", "halfRadius", "mean"</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>roofOpts</code></td>
+                <td class="name"><code>geomProfile</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;string></span>
+<span class="param-type">geom2.Geom2</span>
 
 
             
@@ -882,20 +515,20 @@
 
             
 
-            <td class="description last">Options like 'solid', 'noWall'</td>
+            <td class="description last">2D cross-section profile</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>wallThickness</code></td>
+                <td class="name"><code>cutCentre</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -905,7 +538,7 @@
 
             
 
-            <td class="description last">Wall thickness</td>
+            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
         </tr>
 
     
@@ -953,7 +586,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_roofs.js.html">builders/roofs.js</a>, <a href="builders_roofs.js.html#line151">line 151</a>
+        <a href="details_foils.js.html">details/foils.js</a>, <a href="details_foils.js.html#line228">line 228</a>
     </li></ul></dd>
     
 
@@ -978,16 +611,771 @@
 
 
 
-<h5>Returns:</h5>
+
+
+
+
 
         
-<div class="param-desc">
-    Shed roof
+            
+
+    
+
+    
+    <h4 class="name" id="quatrefoil"><span class="type-signature"></span>quatrefoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Builds a quatrefoil opening using a given 2d cross-section profile
 </div>
 
 
 
+
+
+
+
+
+
+    <h5>Parameters:</h5>
     
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>radius</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">radius of container circle</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lobeRadiusType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">"inSlice", "halfRadius", "mean"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>geomProfile</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">geom2.Geom2</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">2D cross-section profile</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cutCentre</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="details_foils.js.html">details/foils.js</a>, <a href="details_foils.js.html#line177">line 177</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sexfoil"><span class="type-signature"></span>sexfoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Builds a sexfoil opening using a given 2d cross-section profile
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>radius</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">radius of container circle</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lobeRadiusType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">"inSlice", "halfRadius", "mean"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>geomProfile</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">geom2.Geom2</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">2D cross-section profile</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cutCentre</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="details_foils.js.html">details/foils.js</a>, <a href="details_foils.js.html#line211">line 211</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="trefoil"><span class="type-signature"></span>trefoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Builds a trefoil opening using a given 2d cross-section profile
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>radius</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">radius of container circle</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lobeRadiusType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">"inSlice", "halfRadius", "mean"</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>geomProfile</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">geom2.Geom2</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">2D cross-section profile</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cutCentre</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="details_foils.js.html">details/foils.js</a>, <a href="details_foils.js.html#line160">line 160</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
