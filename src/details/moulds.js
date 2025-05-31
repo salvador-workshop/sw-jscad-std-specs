@@ -24,7 +24,7 @@ const mouldBuilder = ({ lib }) => {
    *     base cuboid ('top' | 'middle' | 'bottom'). Defaults to 'middle'
    * @param {geom2.Geom2} geomProfile - 2D positive cross-section profile
    */
-  const cuboidOneEdge = (opts, geomProfile) => {
+  const cuboidMouldingOneEdge = (opts, geomProfile) => {
     const profileBbox = measureBoundingBox(geomProfile);
     const profileSize = [profileBbox[1][0] - profileBbox[0][0], profileBbox[1][1] - profileBbox[0][1]];
 
@@ -37,7 +37,7 @@ const mouldBuilder = ({ lib }) => {
   }
 
   return {
-    cuboidOneEdge,
+    cuboidMouldingOneEdge,
     /**
      * Positive moulding for a cuboid with the given 2D profile placed onto all the side edges.
      * @memberof details.moulds
@@ -46,15 +46,15 @@ const mouldBuilder = ({ lib }) => {
      * @param {number[]} opts.size - size (x, y, z)
      * @param {geom2.Geom2} geomProfile - 2D positive cross-section profile
      */
-    cuboidEdge: (opts, geomProfile) => {
+    cuboidMoulding: (opts, geomProfile) => {
       // // X axis
       const xHalfSize = [opts.size[0] / 2, opts.size[1], opts.size[2]];
-      const xHalfBlock = align({ modes: ['min', 'center', 'none'] }, cuboidOneEdge({ size: xHalfSize, geomProfile }));
+      const xHalfBlock = align({ modes: ['min', 'center', 'none'] }, cuboidMouldingOneEdge({ size: xHalfSize, geomProfile }));
       const xBlock = union(xHalfBlock, mirror({ normal: [1, 0, 0] }, xHalfBlock));
 
       // // Y axis
       const yHalfSize = [opts.size[1] / 2, opts.size[0], opts.size[2]];
-      const yHalfBlock = rotate([0, 0, Math.PI / -2], cuboidOneEdge({ size: yHalfSize, geomProfile }));
+      const yHalfBlock = rotate([0, 0, Math.PI / -2], cuboidMouldingOneEdge({ size: yHalfSize, geomProfile }));
       const yHalfBlockAdj = align({ modes: ['center', 'max', 'none'] }, yHalfBlock);
       const yBlock = union(yHalfBlockAdj, mirror({ normal: [0, 1, 0] }, yHalfBlockAdj));
 
@@ -70,7 +70,7 @@ const mouldBuilder = ({ lib }) => {
      * @param {number} opts.segments - Cylinder height.
      * @param {geom2.Geom2} geomProfile - 2D positive cross-section profile
      */
-    circularEdge: (opts, geomProfile) => {
+    circularMoulding: (opts, geomProfile) => {
       const profileBbox = measureBoundingBox(geomProfile);
       const profileSize = [profileBbox[1][0] - profileBbox[0][0], profileBbox[1][1] - profileBbox[0][1]];
       const baseCylRad = opts.radius - profileSize[0];

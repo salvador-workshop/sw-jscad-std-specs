@@ -41,7 +41,7 @@ const entrywayBuilder = ({ lib, swLib }) => {
          * @param {number} opts.archRadFactor - arch radius factor
          * @returns Entryway geometry
          */
-        buildGothic: (opts) => {
+        buildGothicEntryway: (opts) => {
             const wallSpace = opts.wallLength - opts.entryLength;
 
             const wall1Specs = [wallSpace / 2, opts.wallThickness, opts.wallHeight];

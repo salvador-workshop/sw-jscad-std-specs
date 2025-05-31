@@ -92,14 +92,12 @@ const profileBuilder = ({ lib }) => {
     /**
     * Edge profiles
     * @memberof details.profiles
-    * @instance
-    * @type {object}
+    * @namespace edge
     */
     edge: {
       /**
        * Edge profile: Circular notch in bottom half
-       * @memberof details.profiles
-       * @alias edge.circNotch
+       * @memberof details.profiles.edge
        * @instance
        * @param {Object} opts 
        * @param {number} opts.totalThickness - total thickness of edge
@@ -136,8 +134,7 @@ const profileBuilder = ({ lib }) => {
       },
       /**
        * Edge profile: Circular portrusion in bottom half
-       * @memberof details.profiles
-       * @alias edge.circPortrusion
+       * @memberof details.profiles.edge
        * @instance
        * @param {Object} opts 
        * @param {number} opts.totalThickness - total thickness of edge

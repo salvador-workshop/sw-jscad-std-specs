@@ -193,7 +193,7 @@ const trimFamilyAranea = ({ lib }) => {
      * @param {number} opts.detailDepth - Size of corner details (mm). Defaults to 1/3 of `unitDepth`
      * @param {number} opts.styleOpts - Style options ("base", "crown", "dado"). Defaults to "dado"
      */
-    const build = ({
+    const buildTrimFamily = ({
         unitHeight,
         unitDepth,
         detailDepth,
@@ -311,7 +311,7 @@ const trimFamilyAranea = ({ lib }) => {
     }
 
     return {
-        build
+        buildTrimFamily
     }
 }
 

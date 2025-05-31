@@ -28,7 +28,7 @@ const buttressBuilder = ({ lib, swLib }) => {
          * @param {number} opts.trimSides - sides where trim is present. Expects an integer between 1-4
          * @returns Buttress geometry
          */
-        buildSimple: ({
+        buildSimpleButtress: ({
             height,
             thickness,
             width,
@@ -68,7 +68,7 @@ const buttressBuilder = ({ lib, swLib }) => {
          * @param {number} opts.trimSides - sides where trim is present. Expects an integer between 1-4
          * @returns Buttress geometry
          */
-        buildTwoPart: ({
+        buildTwoPartButtress: ({
             height,
             thickness,
             bottomWidth,

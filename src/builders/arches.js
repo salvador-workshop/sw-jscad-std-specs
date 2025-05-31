@@ -22,7 +22,7 @@ const archBuilder = ({ lib }) => {
      * @param {number} opts.arcRadius - arc radius 
      * @param {geom2.Geom2} geomProfile - 2D cross-section profile
      */
-    onePt: (opts, geomProfile) => {
+    onePtArch: (opts, geomProfile) => {
       const arcRad = opts.arcRadius;
 
       if (geomProfile) {
@@ -46,7 +46,7 @@ const archBuilder = ({ lib }) => {
      * @param {number} opts.archWidth - arch width 
      * @param {geom2.Geom2} geomProfile - 2D cross-section profile
      */
-    twoPt: (opts, geomProfile) => {
+    twoPtArch: (opts, geomProfile) => {
       const arcRad = opts.arcRadius;
       const archWth = opts.archWidth;
 

@@ -85,7 +85,6 @@ const columnBuilder = ({ lib, swLib }) => {
   /**
    * Defines the construction of column sub-components (base, shaft, capital).
    * All functions follow the function signature of base.cuboid().
-   * @version 2.2.0
    * @access private
    */
   const columnPartBuilder = {
@@ -120,7 +119,7 @@ const columnBuilder = ({ lib, swLib }) => {
      * @param {Array<string|number|geom2.Geom2|null>} opts.capital - specs for column capital (style, height, radius, geomProfile)
      * @param {number} opts.height - total height of column
      */
-    threePt: (opts) => {
+    threePtColumn: (opts) => {
       const baseStyle = opts.base[0];
       const shaftStyle = opts.shaft[0];
       const capitalStyle = opts.capital[0];
