@@ -6,23 +6,35 @@
  */
 
 const positionUtils = ({ lib }) => {
+    /**
+     * Measures key info, and presents it in a readable manner, like `{ size: { x: 99, y: 99, z: 99 }, min: { ... }, max: { ... } }`
+     * @memberof core.position
+     * @instance
+     * @returns ...
+     */
+    const measure = (inputGeom) => {
+        const {
+            measureDimensions,
+            measureBoundingBox,
+        } = lib.measurements
+
+        return {
+            boundingBox: measureBoundingBox(inputGeom),
+            dimensions: measureDimensions(inputGeom),
+        }
+    };
+
     return {
+        measure,
         /**
-         * Measures key info, and presents it in a readable manner, like `{ size: { x: 99, y: 99, z: 99 }, min: { ... }, max: { ... } }`
+         * Gets the keypoints for a given object
          * @memberof core.position
          * @instance
          * @returns ...
          */
-        measure: (inputGeom) => {
-            const {
-                measureDimensions,
-                measureBoundingBox,
-            } = lib.measurements
-
-            return {
-                boundingBox: measureBoundingBox(inputGeom),
-                dimensions: measureDimensions(inputGeom),
-            }
+        getKeypoints: (inputGeom) => {
+            // keypoints: box corners, midpoints of edges, midpoints of box faces
+            return null;
         }
     }
 }
