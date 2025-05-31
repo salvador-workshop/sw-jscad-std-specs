@@ -1,3 +1,9 @@
+"use strict"
+
+/**
+ * Core
+ * @namespace core
+ */
 
 const init = ({ lib }) => {
     const core = {

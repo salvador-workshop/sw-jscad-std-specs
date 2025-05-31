@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: builders/index.js</title>
+    <title>JSDoc: Namespace: position</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,56 +17,202 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: builders/index.js</h1>
+    <h1 class="page-title">Namespace: position</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>"use strict"
+        <h2>
+            <span class="ancestors"><a href="core.html">core</a>.</span>position</h2>
+        
+    
+</header>
 
-/**
- * Builders
- * @namespace builders
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">...</div>
+        
 
-const init = ({ lib, swLib }) => {
-    const builders = {
-        // Dependent on libs and utils
-        columns: require('./columns').init({ lib, swLib }),
-        walls: require('./walls').init({ lib, swLib }),
-    }
+        
 
-    // Gotta do this stuff because of conflicts with the "builders" prop name
-    builders.entryways = require('./entryways').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.roofs = require('./roofs').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.buttress = require('./buttress').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
 
-    return builders;
-}
+<dl class="details">
 
-module.exports = { init };
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="core_position.js.html">core/position.js</a>, <a href="core_position.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="measure"><span class="type-signature"></span>measure<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Measures key info, and presents it in a readable manner, like `{ size: { x: 99, y: 99, z: 99 }, min: { ... }, max: { ... } }`
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="core_position.js.html">core/position.js</a>, <a href="core_position.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    ...
+</div>
+
+
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

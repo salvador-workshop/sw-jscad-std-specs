@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: builders/index.js</title>
+    <title>JSDoc: Source: core/parts.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: builders/index.js</h1>
+    <h1 class="page-title">Source: core/parts.js</h1>
 
     
 
@@ -29,41 +29,29 @@
             <pre class="prettyprint source linenums"><code>"use strict"
 
 /**
- * Builders
- * @namespace builders
+ * ...
+ * @namespace core.parts
  */
 
-const init = ({ lib, swLib }) => {
-    const builders = {
-        // Dependent on libs and utils
-        columns: require('./columns').init({ lib, swLib }),
-        walls: require('./walls').init({ lib, swLib }),
+const parts = ({ lib, swLib }) => {
+    const newPart = ({
+        partName,
+        partColour,
+        geom
+    }) => {
+        return {
+            partName,
+            partColour,
+            partGeom: geom,
+            partCtrlPts: null,
+        }
+    };
+    return {
+        newPart
     }
-
-    // Gotta do this stuff because of conflicts with the "builders" prop name
-    builders.entryways = require('./entryways').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.roofs = require('./roofs').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.buttress = require('./buttress').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-
-    return builders;
 }
 
-module.exports = { init };
+module.exports = { init: parts };
 </code></pre>
         </article>
     </section>

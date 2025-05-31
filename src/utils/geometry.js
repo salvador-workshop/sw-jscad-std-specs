@@ -11,6 +11,14 @@ const geometryUtils = ({ lib, swLib }) => {
     } = swLib.utils.maths;
 
     return {
+        /**
+         * Gets triangular points in area
+         * @memberof utils.geometry
+         * @param {*} x 
+         * @param {*} y 
+         * @param {*} radius 
+         * @returns ...
+         */
         getTriangularPtsInArea: (x, y, radius) => {
             const diam = radius * 2;
             const allPoints = [];
@@ -38,6 +46,14 @@ const geometryUtils = ({ lib, swLib }) => {
 
             return allPoints;
         },
+        /**
+         * Gets square points in area
+         * @memberof utils.geometry
+         * @param {*} x 
+         * @param {*} y 
+         * @param {*} radius 
+         * @returns ...
+         */
         getSquarePtsInArea: (x, y, radius) => {
             const diam = radius * 2;
             const allXCoords = [];
@@ -59,25 +75,65 @@ const geometryUtils = ({ lib, swLib }) => {
 
             return allPoints.map(pt => { return { x: pt[0], y: pt[1] } });
         },
+        /**
+         * Functions related to regular polygons
+         * @memberof utils.geometry
+         * @namespace regPoly
+         */
         regPoly: {
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             sideLengthFromApothem: (apothem, numSides) => {
                 return apothem * 2 * Math.tan(Math.PI / numSides);
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             sideLengthFromCircumRadius: (circumradius, numSides) => {
                 return circumradius * 2 * Math.sin(Math.PI / numSides);
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             apothemFromCircumradius: (circumradius, numSides) => {
                 return circumradius * Math.cos(Math.PI / numSides)
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             apothemFromSideLength: (sideLength, numSides) => {
                 return sideLength / 2 * Math.tan(Math.PI / numSides)
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             circumradiusFromApothem: (apothem, numSides) => {
                 return apothem / Math.cos(Math.PI / numSides);
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             circumradiusFromSideLength: (sideLength, numSides) => {
                 return sideLength / 2 * Math.sin(Math.PI / numSides)
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             interiorAngle: (numSides) => {
                 return 2 * Math.PI / numSides;
             },

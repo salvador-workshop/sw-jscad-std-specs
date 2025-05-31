@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: builders/index.js</title>
+    <title>JSDoc: Source: core/internals.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: builders/index.js</h1>
+    <h1 class="page-title">Source: core/internals.js</h1>
 
     
 
@@ -29,41 +29,80 @@
             <pre class="prettyprint source linenums"><code>"use strict"
 
 /**
- * Builders
- * @namespace builders
+ * ...
+ * @namespace core.internals
  */
 
-const init = ({ lib, swLib }) => {
-    const builders = {
-        // Dependent on libs and utils
-        columns: require('./columns').init({ lib, swLib }),
-        walls: require('./walls').init({ lib, swLib }),
+const internals = ({ lib, swLib }) => {
+
+    //-------------------
+    // Master Prop List
+
+    // General
+    const propListBasic = [
+        { id: 'length', desc: 'length of element' },
+        { id: 'width', desc: 'Width of element' },
+        { id: 'height', desc: 'height of element' },
+    ]
+
+    // Decorative details
+    const propListDecorative = [
+        { id: 'trimOpts', desc: 'array of string options' },
+        { id: 'trimUnitSize', desc: '[x,y] of trim unit depth, and trim unit height' },
+    ]
+
+    const propListWall = [
+        { id: 'wallSize', desc: '[x,y,z] of wall length, wall thickness, and wall height' },
+        { id: 'crownDetailLvl', desc: 'crown detail level, as integer (usually 0-2)' },
+        { id: 'dadoDetailLvl', desc: 'dado detail level, as integer (usually 0-2)' },
+        { id: 'baseDetailLvl', desc: 'base detail level, as integer (usually 0-2)' },
+    ]
+
+    const propListRoof = [
+        { id: 'roofSpanSize', desc: 'length of element' },
+        { id: 'roofOverhangSize', desc: 'Width of element' },
+        { id: 'roofPitch', desc: 'height of element' },
+    ]
+
+    // Parameters used by building &amp; design commands
+    const propListVariants = [
+        { id: 'family', desc: 'General grouping' },
+        { id: 'type', desc: 'Functional grouping' },
+        { id: 'subType', desc: 'Functional subgroup' },
+        { id: 'tagsVariants', desc: 'Extra options for variants' },
+    ]
+
+    const masterPropList = [
+        ...propListBasic,
+        ...propListDecorative,
+        ...propListWall,
+        ...propListRoof,
+    ]
+
+
+    //-------------------
+    // Colours
+
+    colourList = [];
+
+    //-------------------
+    // Layers
+
+    layerList = [];
+
+    return {
+        propListBasic,
+        propListWall,
+        propListRoof,
+        propListVariants,
+        masterPropList,
+        colourList,
+        layerList,
     }
 
-    // Gotta do this stuff because of conflicts with the "builders" prop name
-    builders.entryways = require('./entryways').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.roofs = require('./roofs').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.buttress = require('./buttress').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-
-    return builders;
 }
 
-module.exports = { init };
+module.exports = { init: internals };
 </code></pre>
         </article>
     </section>

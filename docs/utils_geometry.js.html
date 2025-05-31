@@ -39,6 +39,14 @@ const geometryUtils = ({ lib, swLib }) => {
     } = swLib.utils.maths;
 
     return {
+        /**
+         * Gets triangular points in area
+         * @memberof utils.geometry
+         * @param {*} x 
+         * @param {*} y 
+         * @param {*} radius 
+         * @returns ...
+         */
         getTriangularPtsInArea: (x, y, radius) => {
             const diam = radius * 2;
             const allPoints = [];
@@ -66,6 +74,14 @@ const geometryUtils = ({ lib, swLib }) => {
 
             return allPoints;
         },
+        /**
+         * Gets square points in area
+         * @memberof utils.geometry
+         * @param {*} x 
+         * @param {*} y 
+         * @param {*} radius 
+         * @returns ...
+         */
         getSquarePtsInArea: (x, y, radius) => {
             const diam = radius * 2;
             const allXCoords = [];
@@ -87,25 +103,65 @@ const geometryUtils = ({ lib, swLib }) => {
 
             return allPoints.map(pt => { return { x: pt[0], y: pt[1] } });
         },
+        /**
+         * Functions related to regular polygons
+         * @memberof utils.geometry
+         * @namespace regPoly
+         */
         regPoly: {
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             sideLengthFromApothem: (apothem, numSides) => {
                 return apothem * 2 * Math.tan(Math.PI / numSides);
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             sideLengthFromCircumRadius: (circumradius, numSides) => {
                 return circumradius * 2 * Math.sin(Math.PI / numSides);
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             apothemFromCircumradius: (circumradius, numSides) => {
                 return circumradius * Math.cos(Math.PI / numSides)
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             apothemFromSideLength: (sideLength, numSides) => {
                 return sideLength / 2 * Math.tan(Math.PI / numSides)
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             circumradiusFromApothem: (apothem, numSides) => {
                 return apothem / Math.cos(Math.PI / numSides);
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             circumradiusFromSideLength: (sideLength, numSides) => {
                 return sideLength / 2 * Math.sin(Math.PI / numSides)
             },
+            /**
+             * ...
+             * @memberof utils.geometry.regPoly
+             * @returns ...
+             */
             interiorAngle: (numSides) => {
                 return 2 * Math.PI / numSides;
             },
@@ -124,13 +180,13 @@ module.exports = { init: geometryUtils };
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="builders.arches.html">builders.arches</a></li><li><a href="builders.buttress.html">builders.buttress</a></li><li><a href="builders.columns.html">builders.columns</a></li><li><a href="builders.entryways.html">builders.entryways</a></li><li><a href="builders.foils.html">builders.foils</a></li><li><a href="builders.moulds.html">builders.moulds</a></li><li><a href="builders.profiles.html">builders.profiles</a></li><li><a href="builders.roofs.html">builders.roofs</a></li><li><a href="builders.trimFamilyAranea.html">builders.trimFamilyAranea</a></li><li><a href="builders.walls.html">builders.walls</a></li><li><a href="utils.geometry.html">utils.geometry</a></li><li><a href="utils.maths.html">utils.maths</a></li><li><a href="utils.superPrimitives.html">utils.superPrimitives</a></li><li><a href="utils.transform.html">utils.transform</a></li></ul><h3>Global</h3><ul><li><a href="global.html#measure">measure</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="builders.html">builders</a></li><li><a href="builders.arches.html">builders.arches</a></li><li><a href="builders.buttress.html">builders.buttress</a></li><li><a href="builders.columns.html">builders.columns</a></li><li><a href="builders.entryways.html">builders.entryways</a></li><li><a href="builders.foils.html">builders.foils</a></li><li><a href="builders.moulds.html">builders.moulds</a></li><li><a href="builders.profiles.html">builders.profiles</a></li><li><a href="builders.roofs.html">builders.roofs</a></li><li><a href="builders.trimFamilyAranea.html">builders.trimFamilyAranea</a></li><li><a href="builders.walls.html">builders.walls</a></li><li><a href="core.html">core</a></li><li><a href="core.constants.html">core.constants</a></li><li><a href="core.errors.html">core.errors</a></li><li><a href="core.internals.html">core.internals</a></li><li><a href="core.parts.html">core.parts</a></li><li><a href="core.position.html">core.position</a></li><li><a href="core.text.html">core.text</a></li><li><a href="utils.html">utils</a></li><li><a href="utils.geometry.html">utils.geometry</a></li><li><a href="utils.geometry.regPoly.html">utils.geometry.regPoly</a></li><li><a href="utils.maths.html">utils.maths</a></li><li><a href="utils.superPrimitives.html">utils.superPrimitives</a></li><li><a href="utils.transform.html">utils.transform</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 08:29:33 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 08:49:50 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

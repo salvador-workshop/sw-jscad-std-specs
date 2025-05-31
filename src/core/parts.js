@@ -1,3 +1,10 @@
+"use strict"
+
+/**
+ * ...
+ * @namespace core.parts
+ */
+
 const parts = ({ lib, swLib }) => {
     const newPart = ({
         partName,

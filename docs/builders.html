@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: builders/index.js</title>
+    <title>JSDoc: Namespace: builders</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,56 +17,133 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: builders/index.js</h1>
+    <h1 class="page-title">Namespace: builders</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>"use strict"
+        <h2>builders</h2>
+        
+    
+</header>
 
-/**
- * Builders
- * @namespace builders
- */
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Builders</div>
+        
 
-const init = ({ lib, swLib }) => {
-    const builders = {
-        // Dependent on libs and utils
-        columns: require('./columns').init({ lib, swLib }),
-        walls: require('./walls').init({ lib, swLib }),
-    }
+        
 
-    // Gotta do this stuff because of conflicts with the "builders" prop name
-    builders.entryways = require('./entryways').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.roofs = require('./roofs').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.buttress = require('./buttress').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
 
-    return builders;
-}
+<dl class="details">
 
-module.exports = { init };
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="builders_index.js.html">builders/index.js</a>, <a href="builders_index.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Namespaces</h3>
+
+        <dl>
+            <dt><a href="builders.arches.html">arches</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.buttress.html">buttress</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.columns.html">columns</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.entryways.html">entryways</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.foils.html">foils</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.moulds.html">moulds</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.profiles.html">profiles</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.roofs.html">roofs</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.trimFamilyAranea.html">trimFamilyAranea</a></dt>
+            <dd></dd>
+        
+            <dt><a href="builders.walls.html">walls</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

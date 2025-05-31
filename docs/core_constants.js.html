@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: builders/index.js</title>
+    <title>JSDoc: Source: core/constants.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: builders/index.js</h1>
+    <h1 class="page-title">Source: core/constants.js</h1>
 
     
 
@@ -29,41 +29,38 @@
             <pre class="prettyprint source linenums"><code>"use strict"
 
 /**
- * Builders
- * @namespace builders
+ * ...
+ * @namespace core.constants
  */
 
-const init = ({ lib, swLib }) => {
-    const builders = {
-        // Dependent on libs and utils
-        columns: require('./columns').init({ lib, swLib }),
-        walls: require('./walls').init({ lib, swLib }),
-    }
-
-    // Gotta do this stuff because of conflicts with the "builders" prop name
-    builders.entryways = require('./entryways').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.roofs = require('./roofs').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-    builders.buttress = require('./buttress').init({
-        lib,
-        swLib: {
-            ...swLib, builders: { ...swLib.builders, ...builders }
-        }
-    });
-
-    return builders;
+const constants = {
+    /**
+     * Inches / Millimetre conversion rate
+     * @memberof core.constants
+     * @constant {number}
+     */
+    INCHES_MM_FACTOR: 25.4,
+    /**
+     * Gridfinity standard
+     * @memberof core.constants
+     * @constant {number}
+     */
+    GRIDFINITY_UNIT: 42,
+    /**
+     * Golden ratio
+     * @memberof core.constants
+     * @constant {number}
+     */
+    PHI: 1.6180339887,
+    /**
+     * Golden ratio inverse
+     * @memberof core.constants
+     * @constant {number}
+     */
+    PHI_INV: 0.6180339887,
 }
 
-module.exports = { init };
+module.exports = constants;
 </code></pre>
         </article>
     </section>
