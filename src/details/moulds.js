@@ -49,12 +49,12 @@ const mouldBuilder = ({ lib }) => {
     cuboidMoulding: (opts, geomProfile) => {
       // // X axis
       const xHalfSize = [opts.size[0] / 2, opts.size[1], opts.size[2]];
-      const xHalfBlock = align({ modes: ['min', 'center', 'none'] }, cuboidMouldingOneEdge({ size: xHalfSize, geomProfile }));
+      const xHalfBlock = align({ modes: ['min', 'center', 'none'] }, cuboidMouldingOneEdge({ size: xHalfSize }, geomProfile));
       const xBlock = union(xHalfBlock, mirror({ normal: [1, 0, 0] }, xHalfBlock));
 
       // // Y axis
       const yHalfSize = [opts.size[1] / 2, opts.size[0], opts.size[2]];
-      const yHalfBlock = rotate([0, 0, Math.PI / -2], cuboidMouldingOneEdge({ size: yHalfSize, geomProfile }));
+      const yHalfBlock = rotate([0, 0, Math.PI / -2], cuboidMouldingOneEdge({ size: yHalfSize }, geomProfile));
       const yHalfBlockAdj = align({ modes: ['center', 'max', 'none'] }, yHalfBlock);
       const yBlock = union(yHalfBlockAdj, mirror({ normal: [0, 1, 0] }, yHalfBlockAdj));
 

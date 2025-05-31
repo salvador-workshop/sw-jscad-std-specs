@@ -197,7 +197,7 @@ const roofBuilder = ({ lib, swLib }) => {
 
         // Roof Assembly
 
-        const trFamily = swLib.families[`trimFamily${trimFamily}`].buildTrimFamily({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
+        const trFamily = swLib.families[`trim${trimFamily}`].buildTrimFamily({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
         const bottomTrimProfile = trFamily.crown.extraSmall;
 
         const bTrimRafterSpecs = [2 * trimUnitSize[0] + roofHypot, 2 * trimUnitSize[0] + axisSpan];
