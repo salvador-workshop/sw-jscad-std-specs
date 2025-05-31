@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: builders/index.js</title>
+    <title>JSDoc: Source: details/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: builders/index.js</h1>
+    <h1 class="page-title">Source: details/index.js</h1>
 
     
 
@@ -29,23 +29,18 @@
             <pre class="prettyprint source linenums"><code>"use strict"
 
 /**
- * Builders
- * @namespace builders
+ * Details
+ * @namespace details
  */
 
-const init = ({ lib, swLib }) => {
-    const builders = {
-        // Dependent on libs and utils
-        columns: require('./columns').init({ lib, swLib }),
-        walls: require('./walls').init({ lib, swLib }),
-        arches: require('./arches').init({ lib, swLib }),
+const init = ({ lib }) => {
+    const details = {
+        foils: require('./foils').init({ lib }),
+        moulds: require('./moulds').init({ lib }),
+        profiles: require('./profiles').init({ lib }),
     }
 
-    builders.entryways = require('./entryways').init({ lib, swLib: { ...swLib, builders } });
-    builders.roofs = require('./roofs').init({ lib, swLib: { ...swLib, builders } });
-    builders.buttress = require('./buttress').init({ lib, swLib: { ...swLib, builders } });
-
-    return builders;
+    return details;
 }
 
 module.exports = { init };

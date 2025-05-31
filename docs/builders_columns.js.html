@@ -103,17 +103,16 @@ const columnBuilder = ({ lib, swLib }) => {
    * Simple extrude
    * @param {Object} opts
    * @param {number} opts.height - element height
-   * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
+   * @param {geom2.Geom2} geomProfile - 2D cross-section profile
    */
-  const colExtrude = (opts) => {
-    return extrudeLinear({ height: opts.height }, opts.geomProfile);
+  const colExtrude = (opts, geomProfile) => {
+    return extrudeLinear({ height: opts.height }, geomProfile);
   }
 
 
   /**
    * Defines the construction of column sub-components (base, shaft, capital).
    * All functions follow the function signature of base.cuboid().
-   * @version 2.2.0
    * @access private
    */
   const columnPartBuilder = {
@@ -148,7 +147,7 @@ const columnBuilder = ({ lib, swLib }) => {
      * @param {Array&lt;string|number|geom2.Geom2|null>} opts.capital - specs for column capital (style, height, radius, geomProfile)
      * @param {number} opts.height - total height of column
      */
-    threePt: (opts) => {
+    threePtColumn: (opts) => {
       const baseStyle = opts.base[0];
       const shaftStyle = opts.shaft[0];
       const capitalStyle = opts.capital[0];
@@ -156,20 +155,17 @@ const columnBuilder = ({ lib, swLib }) => {
       const base = columnPartBuilder.base[baseStyle]({
         height: opts.base[1],
         radius: opts.base[2],
-        geomProfile: opts.base[3],
-      });
+      }, opts.base[3]);
 
       const shaft = columnPartBuilder.shaft[shaftStyle]({
         height: opts.height,
         radius: opts.shaft[1],
-        geomProfile: opts.shaft[2],
-      });
+      }, opts.shaft[2]);
 
       const capital = columnPartBuilder.capital[capitalStyle]({
         height: opts.capital[1],
         radius: opts.capital[2],
-        geomProfile: opts.capital[3],
-      });
+      }, opts.capital[3]);
 
       const shaftBbox = measureBoundingBox(shaft);
       const [shaftMin, shaftMax] = [shaftBbox[0][2], shaftBbox[1][2]];
@@ -193,13 +189,13 @@ module.exports = { init: columnBuilder };
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="builders.html">builders</a></li><li><a href="builders.arches.html">builders.arches</a></li><li><a href="builders.buttress.html">builders.buttress</a></li><li><a href="builders.columns.html">builders.columns</a></li><li><a href="builders.entryways.html">builders.entryways</a></li><li><a href="builders.foils.html">builders.foils</a></li><li><a href="builders.moulds.html">builders.moulds</a></li><li><a href="builders.profiles.html">builders.profiles</a></li><li><a href="builders.roofs.html">builders.roofs</a></li><li><a href="builders.trimFamilyAranea.html">builders.trimFamilyAranea</a></li><li><a href="builders.walls.html">builders.walls</a></li><li><a href="core.html">core</a></li><li><a href="core.constants.html">core.constants</a></li><li><a href="core.errors.html">core.errors</a></li><li><a href="core.internals.html">core.internals</a></li><li><a href="core.parts.html">core.parts</a></li><li><a href="core.position.html">core.position</a></li><li><a href="core.text.html">core.text</a></li><li><a href="utils.html">utils</a></li><li><a href="utils.geometry.html">utils.geometry</a></li><li><a href="utils.geometry.regPoly.html">utils.geometry.regPoly</a></li><li><a href="utils.maths.html">utils.maths</a></li><li><a href="utils.superPrimitives.html">utils.superPrimitives</a></li><li><a href="utils.transform.html">utils.transform</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="builders.html">builders</a></li><li><a href="builders.arches.html">builders.arches</a></li><li><a href="builders.buttress.html">builders.buttress</a></li><li><a href="builders.columns.html">builders.columns</a></li><li><a href="builders.entryways.html">builders.entryways</a></li><li><a href="builders.roofs.html">builders.roofs</a></li><li><a href="builders.walls.html">builders.walls</a></li><li><a href="core.html">core</a></li><li><a href="core.constants.html">core.constants</a></li><li><a href="core.errors.html">core.errors</a></li><li><a href="core.internals.html">core.internals</a></li><li><a href="core.parts.html">core.parts</a></li><li><a href="core.position.html">core.position</a></li><li><a href="core.text.html">core.text</a></li><li><a href="details.html">details</a></li><li><a href="details.foils.html">details.foils</a></li><li><a href="details.moulds.html">details.moulds</a></li><li><a href="details.profiles.html">details.profiles</a></li><li><a href="details.profiles.edge.html">details.profiles.edge</a></li><li><a href="families.html">families</a></li><li><a href="families.trimAranea.html">families.trimAranea</a></li><li><a href="utils.html">utils</a></li><li><a href="utils.geometry.html">utils.geometry</a></li><li><a href="utils.geometry.regPoly.html">utils.geometry.regPoly</a></li><li><a href="utils.maths.html">utils.maths</a></li><li><a href="utils.superPrimitives.html">utils.superPrimitives</a></li><li><a href="utils.transform.html">utils.transform</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 08:49:50 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 10:19:02 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

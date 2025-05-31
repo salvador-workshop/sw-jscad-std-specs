@@ -2,7 +2,7 @@
 
 /**
  * ...
- * @namespace builders.trimFamilyAranea
+ * @namespace families.trimAranea
  */
 
 const trimFamilyAranea = ({ lib }) => {
@@ -185,7 +185,7 @@ const trimFamilyAranea = ({ lib }) => {
 
     /**
      * Creates a set of trimwork profiles
-     * @memberof builders.trimFamilyAranea
+     * @memberof families.trimAranea
      * @instance
      * @param {Object} opts 
      * @param {number} opts.unitHeight - Typical height for basic trim unit
@@ -193,7 +193,7 @@ const trimFamilyAranea = ({ lib }) => {
      * @param {number} opts.detailDepth - Size of corner details (mm). Defaults to 1/3 of `unitDepth`
      * @param {number} opts.styleOpts - Style options ("base", "crown", "dado"). Defaults to "dado"
      */
-    const build = ({
+    const buildTrimFamily = ({
         unitHeight,
         unitDepth,
         detailDepth,
@@ -311,7 +311,7 @@ const trimFamilyAranea = ({ lib }) => {
     }
 
     return {
-        build
+        buildTrimFamily
     }
 }
 

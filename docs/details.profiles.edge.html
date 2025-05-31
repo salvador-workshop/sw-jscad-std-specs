@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: arches</title>
+    <title>JSDoc: Namespace: edge</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: arches</h1>
+    <h1 class="page-title">Namespace: edge</h1>
 
     
 
@@ -29,7 +29,7 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="builders.html">builders</a>.</span>arches</h2>
+            <span class="ancestors"><a href="details.html">details</a><a href="details.profiles.html">.profiles</a>.</span>edge</h2>
         
     
 </header>
@@ -38,7 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Builds circle-based arches. Input 2D profiles must be centred at (0, 0, 0)</div>
+            <div class="description">Edge profiles</div>
         
 
         
@@ -73,7 +73,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_arches.js.html">builders/arches.js</a>, <a href="builders_arches.js.html#line3">line 3</a>
+        <a href="details_profiles.js.html">details/profiles.js</a>, <a href="details_profiles.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -112,7 +112,7 @@
     
 
     
-    <h4 class="name" id="onePtArch"><span class="type-signature"></span>onePtArch<span class="signature">(opts, geomProfile)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="circNotch"><span class="type-signature"></span>circNotch<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -120,7 +120,7 @@
 
 
 <div class="description">
-    Builds a one-centre (semicircular) arch.
+    Edge profile: Circular notch in bottom half
 </div>
 
 
@@ -198,7 +198,7 @@
 
         <tr>
             
-                <td class="name"><code>arcRadius</code></td>
+                <td class="name"><code>totalThickness</code></td>
             
 
             <td class="type">
@@ -214,7 +214,53 @@
 
             
 
-            <td class="description last">arc radius</td>
+            <td class="description last">total thickness of edge</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>topThickness</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">thickness of top (left intact by ornaments)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>smallOffset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">small offset between notch and main edge</td>
         </tr>
 
     
@@ -222,29 +268,6 @@
 </table>
 
             </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>geomProfile</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">geom2.Geom2</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">2D cross-section profile</td>
         </tr>
 
     
@@ -285,7 +308,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_arches.js.html">builders/arches.js</a>, <a href="builders_arches.js.html#line25">line 25</a>
+        <a href="details_profiles.js.html">details/profiles.js</a>, <a href="details_profiles.js.html#line107">line 107</a>
     </li></ul></dd>
     
 
@@ -321,7 +344,7 @@
     
 
     
-    <h4 class="name" id="twoPtArch"><span class="type-signature"></span>twoPtArch<span class="signature">(opts, geomProfile)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="circPortrusion"><span class="type-signature"></span>circPortrusion<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -329,7 +352,7 @@
 
 
 <div class="description">
-    Builds a two-centre pointed arch.
+    Edge profile: Circular portrusion in bottom half
 </div>
 
 
@@ -407,7 +430,7 @@
 
         <tr>
             
-                <td class="name"><code>arcRadius</code></td>
+                <td class="name"><code>totalThickness</code></td>
             
 
             <td class="type">
@@ -423,14 +446,14 @@
 
             
 
-            <td class="description last">arc radius</td>
+            <td class="description last">total thickness of edge</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>archWidth</code></td>
+                <td class="name"><code>topThickness</code></td>
             
 
             <td class="type">
@@ -446,7 +469,30 @@
 
             
 
-            <td class="description last">arch width</td>
+            <td class="description last">thickness of top (left intact by ornaments)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>smallOffset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">small offset between portrusion and main edge</td>
         </tr>
 
     
@@ -454,29 +500,6 @@
 </table>
 
             </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>geomProfile</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">geom2.Geom2</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">2D cross-section profile</td>
         </tr>
 
     
@@ -517,7 +540,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_arches.js.html">builders/arches.js</a>, <a href="builders_arches.js.html#line49">line 49</a>
+        <a href="details_profiles.js.html">details/profiles.js</a>, <a href="details_profiles.js.html#line144">line 144</a>
     </li></ul></dd>
     
 

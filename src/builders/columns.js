@@ -75,17 +75,16 @@ const columnBuilder = ({ lib, swLib }) => {
    * Simple extrude
    * @param {Object} opts
    * @param {number} opts.height - element height
-   * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
+   * @param {geom2.Geom2} geomProfile - 2D cross-section profile
    */
-  const colExtrude = (opts) => {
-    return extrudeLinear({ height: opts.height }, opts.geomProfile);
+  const colExtrude = (opts, geomProfile) => {
+    return extrudeLinear({ height: opts.height }, geomProfile);
   }
 
 
   /**
    * Defines the construction of column sub-components (base, shaft, capital).
    * All functions follow the function signature of base.cuboid().
-   * @version 2.2.0
    * @access private
    */
   const columnPartBuilder = {
@@ -120,7 +119,7 @@ const columnBuilder = ({ lib, swLib }) => {
      * @param {Array<string|number|geom2.Geom2|null>} opts.capital - specs for column capital (style, height, radius, geomProfile)
      * @param {number} opts.height - total height of column
      */
-    threePt: (opts) => {
+    threePtColumn: (opts) => {
       const baseStyle = opts.base[0];
       const shaftStyle = opts.shaft[0];
       const capitalStyle = opts.capital[0];
@@ -128,20 +127,17 @@ const columnBuilder = ({ lib, swLib }) => {
       const base = columnPartBuilder.base[baseStyle]({
         height: opts.base[1],
         radius: opts.base[2],
-        geomProfile: opts.base[3],
-      });
+      }, opts.base[3]);
 
       const shaft = columnPartBuilder.shaft[shaftStyle]({
         height: opts.height,
         radius: opts.shaft[1],
-        geomProfile: opts.shaft[2],
-      });
+      }, opts.shaft[2]);
 
       const capital = columnPartBuilder.capital[capitalStyle]({
         height: opts.capital[1],
         radius: opts.capital[2],
-        geomProfile: opts.capital[3],
-      });
+      }, opts.capital[3]);
 
       const shaftBbox = measureBoundingBox(shaft);
       const [shaftMin, shaftMax] = [shaftBbox[0][2], shaftBbox[1][2]];

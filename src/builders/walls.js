@@ -11,26 +11,27 @@ const wallBuilder = ({ lib, swLib }) => {
     const { cuboid } = lib.primitives
     const { measureDimensions, measureBoundingBox } = lib.measurements;
 
-    const { moulds, trimFamilyAranea, } = swLib.builders
+    const { moulds } = swLib.details
+    const { trimAranea } = swLib.families
     const { PHI_INV } = swLib.core.constants
 
     const crownTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]], geomProfile: trimProfile });
+        return moulds.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const dadoTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]], geomProfile: trimProfile });
+        return moulds.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const baseTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]], geomProfile: trimProfile });
+        return moulds.cuboidMoulding({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const getEntryTrimForDadoUnits = ({ dadoUnits, trimUnitHeight, trimUnitDepth }) => {
-        const tFamilyAranea = trimFamilyAranea.build({ unitHeight: trimUnitHeight, unitDepth: trimUnitDepth });
+        const tFamilyAranea = trimAranea.buildTrimFamily({ unitHeight: trimUnitHeight, unitDepth: trimUnitDepth });
         let entryTrim = tFamilyAranea.crown.small;
         if (dadoUnits === 1) {
             entryTrim = tFamilyAranea.crown.medium;
@@ -85,7 +86,7 @@ const wallBuilder = ({ lib, swLib }) => {
          * @param {number} opts.trimSides - sides where trim is present. Expects integer between 1 to 4
          * @returns Wall geometry
         */
-        build: (opts) => {
+        buildWall: (opts) => {
             console.log(`wallBuilder.build() -- opts = ${JSON.stringify(opts)}`);
             const {
                 baseUnits,
@@ -102,7 +103,7 @@ const wallBuilder = ({ lib, swLib }) => {
                 size: [opts.length, opts.thickness, opts.height],
             }));
 
-            const tFamilyAranea = trimFamilyAranea.build({ unitHeight: opts.trimUnitHeight, unitDepth: opts.trimUnitDepth });
+            const tFamilyAranea = trimAranea.buildTrimFamily({ unitHeight: opts.trimUnitHeight, unitDepth: opts.trimUnitDepth });
 
             const dadoHt = opts.dadoHeight || opts.height * (1 - PHI_INV);
             // console.log(`    dadoHt = ${JSON.stringify(dadoHt)}`);

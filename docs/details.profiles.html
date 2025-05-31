@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: arches</title>
+    <title>JSDoc: Namespace: profiles</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: arches</h1>
+    <h1 class="page-title">Namespace: profiles</h1>
 
     
 
@@ -29,7 +29,7 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="builders.html">builders</a>.</span>arches</h2>
+            <span class="ancestors"><a href="details.html">details</a>.</span>profiles</h2>
         
     
 </header>
@@ -38,7 +38,9 @@
     <div class="container-overview">
     
         
-            <div class="description">Builds circle-based arches. Input 2D profiles must be centred at (0, 0, 0)</div>
+            <div class="description">Builds cross-section profiles in gothic style.
+Output profiles are centred at (0, 0, 0).
+Edge profiles have a 1mm margin between all details and the flat (host) side.</div>
         
 
         
@@ -73,7 +75,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_arches.js.html">builders/arches.js</a>, <a href="builders_arches.js.html#line3">line 3</a>
+        <a href="details_profiles.js.html">details/profiles.js</a>, <a href="details_profiles.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -100,6 +102,13 @@
     
 
     
+        <h3 class="subsection-title">Namespaces</h3>
+
+        <dl>
+            <dt><a href="details.profiles.edge.html">edge</a></dt>
+            <dd></dd>
+        </dl>
+    
 
     
 
@@ -112,7 +121,7 @@
     
 
     
-    <h4 class="name" id="onePtArch"><span class="type-signature"></span>onePtArch<span class="signature">(opts, geomProfile)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="octagonal"><span class="type-signature"></span>octagonal<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -120,7 +129,7 @@
 
 
 <div class="description">
-    Builds a one-centre (semicircular) arch.
+    Octagonal
 </div>
 
 
@@ -198,7 +207,7 @@
 
         <tr>
             
-                <td class="name"><code>arcRadius</code></td>
+                <td class="name"><code>sqLength</code></td>
             
 
             <td class="type">
@@ -214,7 +223,7 @@
 
             
 
-            <td class="description last">arc radius</td>
+            <td class="description last">side length for bounding square</td>
         </tr>
 
     
@@ -222,29 +231,6 @@
 </table>
 
             </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>geomProfile</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">geom2.Geom2</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">2D cross-section profile</td>
         </tr>
 
     
@@ -285,7 +271,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_arches.js.html">builders/arches.js</a>, <a href="builders_arches.js.html#line25">line 25</a>
+        <a href="details_profiles.js.html">details/profiles.js</a>, <a href="details_profiles.js.html#line83">line 83</a>
     </li></ul></dd>
     
 
@@ -321,7 +307,7 @@
     
 
     
-    <h4 class="name" id="twoPtArch"><span class="type-signature"></span>twoPtArch<span class="signature">(opts, geomProfile)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="sqCornerCircNotch"><span class="type-signature"></span>sqCornerCircNotch<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -329,7 +315,7 @@
 
 
 <div class="description">
-    Builds a two-centre pointed arch.
+    Square with circular notches at corners.
 </div>
 
 
@@ -407,7 +393,7 @@
 
         <tr>
             
-                <td class="name"><code>arcRadius</code></td>
+                <td class="name"><code>sqLength</code></td>
             
 
             <td class="type">
@@ -423,14 +409,14 @@
 
             
 
-            <td class="description last">arc radius</td>
+            <td class="description last">side length for bounding square</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>archWidth</code></td>
+                <td class="name"><code>notchRadius</code></td>
             
 
             <td class="type">
@@ -446,7 +432,7 @@
 
             
 
-            <td class="description last">arch width</td>
+            <td class="description last">radius of circular notch</td>
         </tr>
 
     
@@ -454,29 +440,6 @@
 </table>
 
             </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>geomProfile</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">geom2.Geom2</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">2D cross-section profile</td>
         </tr>
 
     
@@ -517,7 +480,216 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders_arches.js.html">builders/arches.js</a>, <a href="builders_arches.js.html#line49">line 49</a>
+        <a href="details_profiles.js.html">details/profiles.js</a>, <a href="details_profiles.js.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sqCornerCircles"><span class="type-signature"></span>sqCornerCircles<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Square with circles at corners.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sqLength</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">side length for bounding square</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cornerRadius</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">radius of circular corner</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="details_profiles.js.html">details/profiles.js</a>, <a href="details_profiles.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
