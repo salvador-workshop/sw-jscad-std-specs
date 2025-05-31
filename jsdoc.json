@@ -21,7 +21,8 @@
                 "include": [
                     "./static/tweaks.css"
                 ]
-            }
+            },
+            "useLongnameInNav": true
         }
     }
 }

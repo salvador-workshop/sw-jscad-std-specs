@@ -2,7 +2,7 @@
 
 /**
  * ...
- * @namespace superPrimitives
+ * @namespace utils.superPrimitives
  */
 
 //-----------
@@ -18,6 +18,12 @@ const superPrimitivesInit = ({ lib }) => {
     const { translate } = lib.transforms
 
     return {
+        /**
+         * Frame cuboid
+         * @memberof utils.superPrimitives
+         * @param {*} param0 
+         * @returns ...
+         */
         frameCuboid: ({ size, frameWidth }) => {
             console.log(`frameCuboid() size = ${JSON.stringify(size)}, frameWidth = ${JSON.stringify(frameWidth)}`);
             const outerCuboid = cuboid({ size });

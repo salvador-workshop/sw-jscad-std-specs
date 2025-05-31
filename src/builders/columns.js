@@ -2,7 +2,7 @@
 
 /**
  * Builds columns. Input 2D profiles must be centred at (0, 0, 0)
- * @namespace columns
+ * @namespace builders.columns
  */
 
 const columnBuilder = ({ lib, swLib }) => {
@@ -112,7 +112,7 @@ const columnBuilder = ({ lib, swLib }) => {
     columnPartBuilder,
     /**
      * Builds a three-part column using the specified dimensions and styles.
-     * @memberof columns
+     * @memberof builders.columns
      * @instance
      * @param {Object} opts
      * @param {Array<string|number|geom2.Geom2|null>} opts.base - specs for column base (style, height, radius, geomProfile)

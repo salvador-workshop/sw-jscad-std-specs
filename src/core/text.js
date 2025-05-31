@@ -1,5 +1,10 @@
 "use strict"
 
+/**
+ * ...
+ * @namespace core.text
+ */
+
 const DEFAULT_EXTRUDE_HEIGHT = 1;
 const DEFAULT_PANEL_HEIGHT = 2;
 
@@ -12,6 +17,13 @@ const textUtils = ({ lib }) => {
     const { extrudeLinear } = lib.extrusions
     const { measureDimensions, measureBoundingBox } = lib.measurements;
 
+    /**
+     * Creates a simple 3D line of text
+     * @memberof core.text
+     * @instance
+     * @param {*} param0 
+     * @returns ...
+     */
     const flatText = (opts) => {
         if (opts.message === undefined || opts.message.length === 0) return []
 
@@ -31,6 +43,13 @@ const textUtils = ({ lib }) => {
 
     return {
         flatText,
+        /**
+         * Creates a rectangular panel with engraved text
+         * @memberof core.text
+         * @instance
+         * @param {*} opts 
+         * @returns ...
+         */
         textPanel: (opts) => {
             const extrudeHt = opts.extrudeHeight || DEFAULT_EXTRUDE_HEIGHT;
 

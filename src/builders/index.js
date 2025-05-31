@@ -1,3 +1,10 @@
+"use strict"
+
+/**
+ * Builders
+ * @namespace builders
+ */
+
 const init = ({ lib, swLib }) => {
     const builders = {
         // Dependent on libs and utils

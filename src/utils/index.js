@@ -1,3 +1,9 @@
+"use strict"
+
+/**
+ * Utilities
+ * @namespace utils
+ */
 
 const init = ({ lib, swLib }) => {
     const utils = {
