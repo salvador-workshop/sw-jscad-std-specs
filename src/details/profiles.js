@@ -4,7 +4,7 @@
  * Builds cross-section profiles in gothic style.
  * Output profiles are centred at (0, 0, 0).
  * Edge profiles have a 1mm margin between all details and the flat (host) side.
- * @namespace builders.profiles
+ * @namespace details.profiles
  */
 
 const EDGE_PROFILE_MARGIN = 1;
@@ -17,7 +17,7 @@ const profileBuilder = ({ lib }) => {
   return {
     /**
      * Square with circular notches at corners.
-     * @memberof builders.profiles
+     * @memberof details.profiles
      * @instance
      * @param {Object} opts 
      * @param {number} opts.sqLength - side length for bounding square 
@@ -45,7 +45,7 @@ const profileBuilder = ({ lib }) => {
     },
     /**
      * Square with circles at corners.
-     * @memberof builders.profiles
+     * @memberof details.profiles
      * @instance
      * @param {Object} opts 
      * @param {number} opts.sqLength - side length for bounding square 
@@ -75,7 +75,7 @@ const profileBuilder = ({ lib }) => {
     },
     /**
      * Octagonal
-     * @memberof builders.profiles
+     * @memberof details.profiles
      * @instance
      * @param {Object} opts 
      * @param {number} opts.sqLength - side length for bounding square 
@@ -91,14 +91,14 @@ const profileBuilder = ({ lib }) => {
     },
     /**
     * Edge profiles
-    * @memberof builders.profiles
+    * @memberof details.profiles
     * @instance
     * @type {object}
     */
     edge: {
       /**
        * Edge profile: Circular notch in bottom half
-       * @memberof builders.profiles
+       * @memberof details.profiles
        * @alias edge.circNotch
        * @instance
        * @param {Object} opts 
@@ -136,7 +136,7 @@ const profileBuilder = ({ lib }) => {
       },
       /**
        * Edge profile: Circular portrusion in bottom half
-       * @memberof builders.profiles
+       * @memberof details.profiles
        * @alias edge.circPortrusion
        * @instance
        * @param {Object} opts 

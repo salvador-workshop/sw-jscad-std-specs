@@ -2,7 +2,7 @@
 
 /**
  * ...
- * @namespace builders.trimFamilyAranea
+ * @namespace families.trimAranea
  */
 
 const trimFamilyAranea = ({ lib }) => {
@@ -185,7 +185,7 @@ const trimFamilyAranea = ({ lib }) => {
 
     /**
      * Creates a set of trimwork profiles
-     * @memberof builders.trimFamilyAranea
+     * @memberof families.trimAranea
      * @instance
      * @param {Object} opts 
      * @param {number} opts.unitHeight - Typical height for basic trim unit

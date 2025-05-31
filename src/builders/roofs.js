@@ -12,7 +12,7 @@ const roofBuilder = ({ lib, swLib }) => {
     const { extrudeLinear } = lib.extrusions;
     const { measureDimensions } = lib.measurements;
 
-    const { moulds } = swLib.builders;
+    const { moulds } = swLib.details;
 
     const bottomTrim = ({ axisLength, rafterLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
@@ -197,7 +197,7 @@ const roofBuilder = ({ lib, swLib }) => {
 
         // Roof Assembly
 
-        const trFamily = swLib.builders[`trimFamily${trimFamily}`].build({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
+        const trFamily = swLib.families[`trim${trimFamily}`].build({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
         const bottomTrimProfile = trFamily.crown.extraSmall;
 
         const bTrimRafterSpecs = [2 * trimUnitSize[0] + roofHypot, 2 * trimUnitSize[0] + axisSpan];

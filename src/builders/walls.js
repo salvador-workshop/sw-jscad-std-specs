@@ -11,7 +11,8 @@ const wallBuilder = ({ lib, swLib }) => {
     const { cuboid } = lib.primitives
     const { measureDimensions, measureBoundingBox } = lib.measurements;
 
-    const { moulds, trimFamilyAranea, } = swLib.builders
+    const { moulds } = swLib.details
+    const { trimAranea } = swLib.families
     const { PHI_INV } = swLib.core.constants
 
     const crownTrim = ({ totalThickness, totalLength, trimProfile }) => {
@@ -30,7 +31,7 @@ const wallBuilder = ({ lib, swLib }) => {
     }
 
     const getEntryTrimForDadoUnits = ({ dadoUnits, trimUnitHeight, trimUnitDepth }) => {
-        const tFamilyAranea = trimFamilyAranea.build({ unitHeight: trimUnitHeight, unitDepth: trimUnitDepth });
+        const tFamilyAranea = trimAranea.build({ unitHeight: trimUnitHeight, unitDepth: trimUnitDepth });
         let entryTrim = tFamilyAranea.crown.small;
         if (dadoUnits === 1) {
             entryTrim = tFamilyAranea.crown.medium;
@@ -102,7 +103,7 @@ const wallBuilder = ({ lib, swLib }) => {
                 size: [opts.length, opts.thickness, opts.height],
             }));
 
-            const tFamilyAranea = trimFamilyAranea.build({ unitHeight: opts.trimUnitHeight, unitDepth: opts.trimUnitDepth });
+            const tFamilyAranea = trimAranea.build({ unitHeight: opts.trimUnitHeight, unitDepth: opts.trimUnitDepth });
 
             const dadoHt = opts.dadoHeight || opts.height * (1 - PHI_INV);
             // console.log(`    dadoHt = ${JSON.stringify(dadoHt)}`);
