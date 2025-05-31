@@ -111,7 +111,7 @@ const entrywayBuilder = ({ lib, swLib }) => {
             const archRadFactor = opts.archRadFactor || 0.75;
             const thinWallThickness = opts.wallThickness - (archTrimProfileSpecs[1] * 2);
 
-            const trimArch = arches.twoPt({ arcRadius: opts.entryLength * archRadFactor, archWidth: opts.entryLength, profileWidth: 5, geomProfile: archTrimProfile });
+            const trimArch = arches.twoPt({ arcRadius: opts.entryLength * archRadFactor, archWidth: opts.entryLength, profileWidth: 5}, archTrimProfile);
             const adjTrimArch = translate([0, (thinWallThickness + archTrimProfileSpecs[1]) / 2, wall1Dims[2]], trimArch);
             const adjTrimArchOpp = mirror({ normal: [0, 1, 0] }, adjTrimArch);
             const trimArchDims = measureDimensions(trimArch);

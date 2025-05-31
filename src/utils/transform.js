@@ -18,12 +18,12 @@ const transformUtils = ({ lib }) => {
          * @memberof utils.transform
          * @instance
          * @param {Object} opts
-         * @param {Object} opts.geom - Object we're cutting
          * @param {string} opts.axis - Axis direction pointing to the remaining geometry. This could be negative, specified like "x" or "-y"
+         * @param {Object} geom - Object we're cutting
          * @returns bisected geometry
          */
-        bisect3d: (opts) => {
-            const geomDims = measureDimensions(opts.geom);
+        bisect3d: (opts, geom) => {
+            const geomDims = measureDimensions(geom);
             const baseCutBox = cuboid({
                 size: [
                     geomDims[0] + 3,
@@ -55,7 +55,7 @@ const transformUtils = ({ lib }) => {
             }
 
             return subtract(
-                opts.geom,
+                geom,
                 alignedCutBox
             );
         },
@@ -64,12 +64,12 @@ const transformUtils = ({ lib }) => {
          * @memberof utils.transform
          * @instance
          * @param {Object} opts
-         * @param {Object} opts.geom - Object we're cutting
          * @param {number} opts.centralAngle
+         * @param {Object} geom - Object we're cutting
          * @returns bisected geometry
          */
-        cutCircularSlice: (opts) => {
-            const geomDims = measureDimensions(opts.geom);
+        cutCircularSlice: (opts, geom) => {
+            const geomDims = measureDimensions(geom);
             const baseCutBox = cuboid({
                 size: [
                     geomDims[0] + 3,
@@ -83,7 +83,7 @@ const transformUtils = ({ lib }) => {
                 rotate([0, 0, opts.centralAngle / 2], align({ modes: ['max', 'center', 'center'] }, baseCutBox))
             );
             const cutBox2 = mirror({ normal: [1, 0, 0] }, cutBox1);
-            let cutAssembly = subtract(opts.geom, cutBox1);
+            let cutAssembly = subtract(geom, cutBox1);
             cutAssembly = subtract(cutAssembly, cutBox2);
 
             return cutAssembly

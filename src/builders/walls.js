@@ -17,17 +17,17 @@ const wallBuilder = ({ lib, swLib }) => {
 
     const crownTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]], geomProfile: trimProfile });
+        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const dadoTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]], geomProfile: trimProfile });
+        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const baseTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
-        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]], geomProfile: trimProfile });
+        return moulds.cuboidEdge({ size: [totalLength, totalThickness, profileDims[1]] }, trimProfile);
     }
 
     const getEntryTrimForDadoUnits = ({ dadoUnits, trimUnitHeight, trimUnitDepth }) => {

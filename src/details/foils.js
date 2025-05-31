@@ -74,10 +74,10 @@ const foilBuilder = ({ lib }) => {
      * @param {number} opts.radius - radius of container circle
      * @param {string} opts.lobeRadiusType - "inSlice", "halfRadius", "mean"
      * @param {boolean} opts.cutCentre - if true, cuts a circular hole in centre of opening
-     * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
+     * @param {geom2.Geom2} geomProfile - 2D cross-section profile
      * @access private
      */
-    const buildFoil3d = (opts) => {
+    const buildFoil3d = (opts, geomProfile) => {
         const centralAngle = Math.PI * 2 / opts.numLobes;
         const sinHalfCentral = Math.sin(centralAngle / 2);
         const isCentreCut = opts.cutCentre || true;
@@ -95,7 +95,7 @@ const foilBuilder = ({ lib }) => {
             lobeRadius = opts.radius / 2
         }
 
-        const translatedProfile = translate([lobeRadius, 0, 0], opts.geomProfile);
+        const translatedProfile = translate([lobeRadius, 0, 0], geomProfile);
         const lobeCircle = extrudeRotate({ segments: 48 }, translatedProfile);
         const alignedLobeCircle = translate([0, -(opts.radius - lobeRadius), 0], lobeCircle);
 
@@ -106,11 +106,11 @@ const foilBuilder = ({ lib }) => {
         const cutBlock = union(cutBlock1, cutBlock2);
         let cutLobe = subtract(alignedLobeCircle, cutBlock);
 
-        const profileBbox = measureBoundingBox(opts.geomProfile);
+        const profileBbox = measureBoundingBox(geomProfile);
         console.log(profileBbox);
         const profileSize = [profileBbox[1][0] - profileBbox[0][0], profileBbox[1][1] - profileBbox[0][1]];
         console.log(profileSize);
-        const negProfile = subtract(rectangle({ size: [profileSize[0] + 1, profileSize[1] + 1] }), opts.geomProfile);
+        const negProfile = subtract(rectangle({ size: [profileSize[0] + 1, profileSize[1] + 1] }), geomProfile);
         const negProfileCut = subtract(negProfile, translate([(profileSize[0] + 2) / 2, 0, 0], rectangle({ size: [profileSize[0] + 2, profileSize[1] + 2] })));
         const negProfileAdj = translate([profileSize[0] / 2, 0, 0], negProfileCut);
 
@@ -154,12 +154,12 @@ const foilBuilder = ({ lib }) => {
          * @param {Object} opts
          * @param {number} opts.radius - radius of container circle
          * @param {string} opts.lobeRadiusType - "inSlice", "halfRadius", "mean"
-         * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
          * @param {boolean} opts.cutCentre - if true, cuts a circular hole in centre of opening (only for 3D)
+         * @param {geom2.Geom2} geomProfile - 2D cross-section profile
          */
-        trefoil: (opts) => {
-            if (opts.geomProfile) {
-                return buildFoil3d({ ...opts, numLobes: 3 });
+        trefoil: (opts, geomProfile) => {
+            if (geomProfile) {
+                return buildFoil3d({ ...opts, numLobes: 3 }, geomProfile);
             } else {
                 return buildFoil2d({ ...opts, numLobes: 3 });
             }
@@ -171,12 +171,12 @@ const foilBuilder = ({ lib }) => {
          * @param {Object} opts
          * @param {number} opts.radius - radius of container circle
          * @param {string} opts.lobeRadiusType - "inSlice", "halfRadius", "mean"
-         * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
          * @param {boolean} opts.cutCentre - if true, cuts a circular hole in centre of opening (only for 3D)
+         * @param {geom2.Geom2} geomProfile - 2D cross-section profile
          */
-        quatrefoil: (opts) => {
-            if (opts.geomProfile) {
-                return buildFoil3d({ ...opts, numLobes: 4 });
+        quatrefoil: (opts, geomProfile) => {
+            if (geomProfile) {
+                return buildFoil3d({ ...opts, numLobes: 4 }, geomProfile);
             } else {
                 return buildFoil2d({ ...opts, numLobes: 4 });
             }
@@ -188,12 +188,12 @@ const foilBuilder = ({ lib }) => {
          * @param {Object} opts
          * @param {number} opts.radius - radius of container circle
          * @param {string} opts.lobeRadiusType - "inSlice", "halfRadius", "mean"
-         * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
          * @param {boolean} opts.cutCentre - if true, cuts a circular hole in centre of opening (only for 3D)
+         * @param {geom2.Geom2} geomProfile - 2D cross-section profile
          */
-        cinquefoil: (opts) => {
-            if (opts.geomProfile) {
-                return buildFoil3d({ ...opts, numLobes: 5 });
+        cinquefoil: (opts, geomProfile) => {
+            if (geomProfile) {
+                return buildFoil3d({ ...opts, numLobes: 5 }, geomProfile);
             } else {
                 return buildFoil2d({ ...opts, numLobes: 5 });
             }
@@ -205,12 +205,12 @@ const foilBuilder = ({ lib }) => {
          * @param {Object} opts
          * @param {number} opts.radius - radius of container circle
          * @param {string} opts.lobeRadiusType - "inSlice", "halfRadius", "mean"
-         * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
          * @param {boolean} opts.cutCentre - if true, cuts a circular hole in centre of opening (only for 3D)
+         * @param {geom2.Geom2} geomProfile - 2D cross-section profile
          */
-        sexfoil: (opts) => {
-            if (opts.geomProfile) {
-                return buildFoil3d({ ...opts, numLobes: 6 });
+        sexfoil: (opts, geomProfile) => {
+            if (geomProfile) {
+                return buildFoil3d({ ...opts, numLobes: 6 }, geomProfile);
             } else {
                 return buildFoil2d({ ...opts, numLobes: 6 });
             }
@@ -222,12 +222,12 @@ const foilBuilder = ({ lib }) => {
          * @param {Object} opts
          * @param {number} opts.radius - radius of container circle
          * @param {string} opts.lobeRadiusType - "inSlice", "halfRadius", "mean"
-         * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
          * @param {boolean} opts.cutCentre - if true, cuts a circular hole in centre of opening (only for 3D)
+         * @param {geom2.Geom2} geomProfile - 2D cross-section profile
          */
-        octofoil: (opts) => {
-            if (opts.geomProfile) {
-                return buildFoil3d({ ...opts, numLobes: 8 });
+        octofoil: (opts, geomProfile) => {
+            if (geomProfile) {
+                return buildFoil3d({ ...opts, numLobes: 8 }, geomProfile);
             } else {
                 return buildFoil2d({ ...opts, numLobes: 8 });
             }

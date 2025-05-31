@@ -20,14 +20,14 @@ const archBuilder = ({ lib }) => {
      * @instance
      * @param {Object} opts 
      * @param {number} opts.arcRadius - arc radius 
-     * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
+     * @param {geom2.Geom2} geomProfile - 2D cross-section profile
      */
-    onePt: (opts) => {
+    onePt: (opts, geomProfile) => {
       const arcRad = opts.arcRadius;
 
-      if (opts.geomProfile) {
+      if (geomProfile) {
         // 3D
-        const profile = translate([arcRad, 0, 0], opts.geomProfile);
+        const profile = translate([arcRad, 0, 0], geomProfile);
         const baseArch = extrudeRotate({ segments: 48, angle: Math.PI }, profile);
 
         return align({ modes: ['center', 'center', 'min'] }, rotate([Math.PI / 2, 0, 0], baseArch));
@@ -44,16 +44,16 @@ const archBuilder = ({ lib }) => {
      * @param {Object} opts 
      * @param {number} opts.arcRadius - arc radius 
      * @param {number} opts.archWidth - arch width 
-     * @param {geom2.Geom2} opts.geomProfile - 2D cross-section profile
+     * @param {geom2.Geom2} geomProfile - 2D cross-section profile
      */
-    twoPt: (opts) => {
+    twoPt: (opts, geomProfile) => {
       const arcRad = opts.arcRadius;
       const archWth = opts.archWidth;
 
-      if (opts.geomProfile) {
+      if (geomProfile) {
         // 3D
-        const profileSpecs = measureDimensions(opts.geomProfile);
-        const profile = translate([profileSpecs[0] / 2 + arcRad, 0, 0], opts.geomProfile);
+        const profileSpecs = measureDimensions(geomProfile);
+        const profile = translate([profileSpecs[0] / 2 + arcRad, 0, 0], geomProfile);
         const baseArch = extrudeRotate({ segments: 48, angle: Math.PI }, profile);
 
         const cutawaySize = Math.max(archWth, arcRad) * 2;
@@ -78,8 +78,8 @@ const archBuilder = ({ lib }) => {
         return align({ modes: ['center', 'min', 'min'] }, intersect(baseArch, reflectedArch));
       }
     },
-    threePt: (opts) => {
-      if (opts.geomProfile) {
+    threePt: (opts, geomProfile) => {
+      if (geomProfile) {
         // 3D
         return null;
       } else {
@@ -87,8 +87,8 @@ const archBuilder = ({ lib }) => {
         return null;
       }
     },
-    fourPt: (opts) => {
-      if (opts.geomProfile) {
+    fourPt: (opts, geomProfile) => {
+      if (geomProfile) {
         // 3D
         return null;
       } else {

@@ -20,16 +20,16 @@ const mouldBuilder = ({ lib }) => {
    * @instance
    * @param {Object} opts
    * @param {number[]} opts.size - size (x, y, z)
-   * @param {geom2.Geom2} opts.geomProfile - 2D positive cross-section profile
    * @param {string} opts.alignment - where to align when profile size differs from
    *     base cuboid ('top' | 'middle' | 'bottom'). Defaults to 'middle'
+   * @param {geom2.Geom2} geomProfile - 2D positive cross-section profile
    */
-  const cuboidOneEdge = (opts) => {
-    const profileBbox = measureBoundingBox(opts.geomProfile);
+  const cuboidOneEdge = (opts, geomProfile) => {
+    const profileBbox = measureBoundingBox(geomProfile);
     const profileSize = [profileBbox[1][0] - profileBbox[0][0], profileBbox[1][1] - profileBbox[0][1]];
 
     const baseBlock = cuboid({ size: [opts.size[0] - profileSize[0], opts.size[1], opts.size[2]] });
-    const edgeBlock = rotate([Math.PI / 2, 0, 0], extrudeLinear({ height: opts.size[1] }, opts.geomProfile));
+    const edgeBlock = rotate([Math.PI / 2, 0, 0], extrudeLinear({ height: opts.size[1] }, geomProfile));
     const baseBlockBbox = measureBoundingBox(baseBlock);
     const alignedEdgeBlock = align({ modes: ['min', 'max', 'none'], relativeTo: baseBlockBbox[1] }, edgeBlock);
 
@@ -44,17 +44,17 @@ const mouldBuilder = ({ lib }) => {
      * @instance
      * @param {Object} opts
      * @param {number[]} opts.size - size (x, y, z)
-     * @param {geom2.Geom2} opts.geomProfile - 2D positive cross-section profile
+     * @param {geom2.Geom2} geomProfile - 2D positive cross-section profile
      */
-    cuboidEdge: (opts) => {
+    cuboidEdge: (opts, geomProfile) => {
       // // X axis
       const xHalfSize = [opts.size[0] / 2, opts.size[1], opts.size[2]];
-      const xHalfBlock = align({ modes: ['min', 'center', 'none'] }, cuboidOneEdge({ size: xHalfSize, geomProfile: opts.geomProfile }));
+      const xHalfBlock = align({ modes: ['min', 'center', 'none'] }, cuboidOneEdge({ size: xHalfSize, geomProfile }));
       const xBlock = union(xHalfBlock, mirror({ normal: [1, 0, 0] }, xHalfBlock));
 
       // // Y axis
       const yHalfSize = [opts.size[1] / 2, opts.size[0], opts.size[2]];
-      const yHalfBlock = rotate([0, 0, Math.PI / -2], cuboidOneEdge({ size: yHalfSize, geomProfile: opts.geomProfile }));
+      const yHalfBlock = rotate([0, 0, Math.PI / -2], cuboidOneEdge({ size: yHalfSize, geomProfile }));
       const yHalfBlockAdj = align({ modes: ['center', 'max', 'none'] }, yHalfBlock);
       const yBlock = union(yHalfBlockAdj, mirror({ normal: [0, 1, 0] }, yHalfBlockAdj));
 
@@ -68,16 +68,16 @@ const mouldBuilder = ({ lib }) => {
      * @param {number} opts.radius - Cylinder radius.
      * @param {number} opts.height - Cylinder height.
      * @param {number} opts.segments - Cylinder height.
-     * @param {geom2.Geom2} opts.geomProfile - 2D positive cross-section profile
+     * @param {geom2.Geom2} geomProfile - 2D positive cross-section profile
      */
-    circularEdge: (opts) => {
-      const profileBbox = measureBoundingBox(opts.geomProfile);
+    circularEdge: (opts, geomProfile) => {
+      const profileBbox = measureBoundingBox(geomProfile);
       const profileSize = [profileBbox[1][0] - profileBbox[0][0], profileBbox[1][1] - profileBbox[0][1]];
       const baseCylRad = opts.radius - profileSize[0];
       // cylinder expanded by a tiny amount to ensure no gaps
       const baseCyl = cylinder({ radius: baseCylRad + 0.05, height: opts.height });
 
-      const adjProfile = translate([baseCylRad + profileSize[0] / 2], opts.geomProfile);
+      const adjProfile = translate([baseCylRad + profileSize[0] / 2], geomProfile);
       const edgeMoulding = extrudeRotate({ segments: opts.segments || 48 }, adjProfile);
 
       return union(baseCyl, edgeMoulding);
@@ -88,9 +88,9 @@ const mouldBuilder = ({ lib }) => {
      * @instance
      * @param {Object} opts
      * @param {number[]} opts.edge - size (x, y)
-     * @param {geom2.Geom2} opts.geomProfile - 2D positive cross-section profile for edge
+     * @param {geom2.Geom2} geomProfile - 2D positive cross-section profile for edge
      */
-    sunkenPanelRect: (opts) => {
+    sunkenPanelRect: (opts, geomProfile) => {
       return null;
     },
     /**
@@ -99,9 +99,9 @@ const mouldBuilder = ({ lib }) => {
      * @instance
      * @param {Object} opts
      * @param {number} opts.radius - panel radius
-     * @param {geom2.Geom2} opts.geomProfile - 2D positive cross-section profile for edge
+     * @param {geom2.Geom2} geomProfile - 2D positive cross-section profile for edge
      */
-    sunkenPanelCirc: (opts) => {
+    sunkenPanelCirc: (opts, geomProfile) => {
       return null;
     },
   }
