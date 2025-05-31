@@ -111,13 +111,13 @@ const entrywayBuilder = ({ lib, swLib }) => {
             const archRadFactor = opts.archRadFactor || 0.75;
             const thinWallThickness = opts.wallThickness - (archTrimProfileSpecs[1] * 2);
 
-            const trimArch = arches.twoPt({ arcRadius: opts.entryLength * archRadFactor, archWidth: opts.entryLength, profileWidth: 5 }, archTrimProfile);
+            const trimArch = arches.twoPtArch({ arcRadius: opts.entryLength * archRadFactor, archWidth: opts.entryLength, profileWidth: 5 }, archTrimProfile);
             const adjTrimArch = translate([0, (thinWallThickness + archTrimProfileSpecs[1]) / 2, wall1Dims[2]], trimArch);
             const adjTrimArchOpp = mirror({ normal: [0, 1, 0] }, adjTrimArch);
             const trimArchDims = measureDimensions(trimArch);
 
             const innerOpeningSpecs = [opts.entryLength, 5 * opts.wallThickness, null];
-            const innerOpeningProfile = arches.twoPt({ arcRadius: innerOpeningSpecs[0] * archRadFactor, archWidth: innerOpeningSpecs[0] });
+            const innerOpeningProfile = arches.twoPtArch({ arcRadius: innerOpeningSpecs[0] * archRadFactor, archWidth: innerOpeningSpecs[0] });
             const innerOpening = rotate([Math.PI / 2, 0, 0], extrudeLinear({ height: innerOpeningSpecs[1] }, innerOpeningProfile));
             const adjInnerOpening = translate([0, innerOpeningSpecs[1] / 2, wall1Dims[2]], innerOpening);
 
