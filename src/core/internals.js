@@ -55,12 +55,12 @@ const internals = ({ lib, swLib }) => {
     //-------------------
     // Colours
 
-    colourList = [];
+    const colourList = [];
 
     //-------------------
     // Layers
 
-    layerList = [];
+    const layerList = [];
 
     return {
         propListBasic,
