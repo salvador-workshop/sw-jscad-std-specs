@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: arches</title>
+    <title>JSDoc: Namespace: transform</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: arches</h1>
+    <h1 class="page-title">Namespace: transform</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>arches</h2>
+        <h2>transform</h2>
         
     
 </header>
@@ -37,7 +37,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Builds circle-based arches. Input 2D profiles must be centred at (0, 0, 0)</div>
+            <div class="description">...</div>
         
 
         
@@ -72,7 +72,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_arches.js.html">builders-core/arches.js</a>, <a href="builders-core_arches.js.html#line3">line 3</a>
+        <a href="utils_transform.js.html">utils/transform.js</a>, <a href="utils_transform.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -111,7 +111,7 @@
     
 
     
-    <h4 class="name" id="onePt"><span class="type-signature"></span>onePt<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="bisect3d"><span class="type-signature"></span>bisect3d<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -119,7 +119,7 @@
 
 
 <div class="description">
-    Builds a one-centre (semicircular) arch.
+    Cuts a given geometry in half.
 </div>
 
 
@@ -197,13 +197,13 @@
 
         <tr>
             
-                <td class="name"><code>arcRadius</code></td>
+                <td class="name"><code>geom</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Object</span>
 
 
             
@@ -213,20 +213,20 @@
 
             
 
-            <td class="description last">arc radius</td>
+            <td class="description last">Object we're cutting</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>geomProfile</code></td>
+                <td class="name"><code>axis</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">geom2.Geom2</span>
+<span class="param-type">string</span>
 
 
             
@@ -236,7 +236,7 @@
 
             
 
-            <td class="description last">2D cross-section profile</td>
+            <td class="description last">Axis direction pointing to the remaining geometry. This could be negative, specified like "x" or "-y"</td>
         </tr>
 
     
@@ -284,7 +284,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_arches.js.html">builders-core/arches.js</a>, <a href="builders-core_arches.js.html#line25">line 25</a>
+        <a href="utils_transform.js.html">utils/transform.js</a>, <a href="utils_transform.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -309,6 +309,16 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    bisected geometry
+</div>
+
+
+
+    
 
 
 
@@ -320,7 +330,7 @@
     
 
     
-    <h4 class="name" id="twoPt"><span class="type-signature"></span>twoPt<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="cutCircularSlice"><span class="type-signature"></span>cutCircularSlice<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -328,7 +338,7 @@
 
 
 <div class="description">
-    Builds a two-centre pointed arch.
+    Cuts a slice of an object
 </div>
 
 
@@ -406,7 +416,30 @@
 
         <tr>
             
-                <td class="name"><code>arcRadius</code></td>
+                <td class="name"><code>geom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object we're cutting</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>centralAngle</code></td>
             
 
             <td class="type">
@@ -422,53 +455,7 @@
 
             
 
-            <td class="description last">arc radius</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>archWidth</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">arch width</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>geomProfile</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">geom2.Geom2</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">2D cross-section profile</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -516,7 +503,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_arches.js.html">builders-core/arches.js</a>, <a href="builders-core_arches.js.html#line49">line 49</a>
+        <a href="utils_transform.js.html">utils/transform.js</a>, <a href="utils_transform.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -541,6 +528,16 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    bisected geometry
+</div>
+
+
+
+    
 
 
 
@@ -562,13 +559,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="arches.html">arches</a></li><li><a href="builders.buttress.html">builders.buttress</a></li><li><a href="builders.columns.html">builders.columns</a></li><li><a href="builders.entryways.html">builders.entryways</a></li><li><a href="builders.roofs.html">builders.roofs</a></li><li><a href="builders.walls.html">builders.walls</a></li><li><a href="foils.html">foils</a></li><li><a href="geometry.html">geometry</a></li><li><a href="maths.html">maths</a></li><li><a href="moulds.html">moulds</a></li><li><a href="profiles.html">profiles</a></li><li><a href="superPrimitives.html">superPrimitives</a></li><li><a href="transform.html">transform</a></li><li><a href="trimFamilyAranea.html">trimFamilyAranea</a></li></ul><h3>Global</h3><ul><li><a href="global.html#measure">measure</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="builders.arches.html">builders.arches</a></li><li><a href="builders.buttress.html">builders.buttress</a></li><li><a href="builders.columns.html">builders.columns</a></li><li><a href="builders.entryways.html">builders.entryways</a></li><li><a href="builders.foils.html">builders.foils</a></li><li><a href="builders.moulds.html">builders.moulds</a></li><li><a href="builders.profiles.html">builders.profiles</a></li><li><a href="builders.roofs.html">builders.roofs</a></li><li><a href="builders.trimFamilyAranea.html">builders.trimFamilyAranea</a></li><li><a href="builders.walls.html">builders.walls</a></li><li><a href="utils.geometry.html">utils.geometry</a></li><li><a href="utils.maths.html">utils.maths</a></li><li><a href="utils.superPrimitives.html">utils.superPrimitives</a></li><li><a href="utils.transform.html">utils.transform</a></li></ul><h3>Global</h3><ul><li><a href="global.html#measure">measure</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 08:21:43 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 08:29:33 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

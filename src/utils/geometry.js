@@ -2,7 +2,7 @@
 
 /**
  * ...
- * @namespace geometry
+ * @namespace utils.geometry
  */
 
 const geometryUtils = ({ lib, swLib }) => {

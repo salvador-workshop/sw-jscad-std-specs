@@ -2,7 +2,7 @@
 
 /**
  * ...
- * @namespace maths
+ * @namespace utils.maths
  */
 
 const arrayCartesianProduct = (a, b) => a.reduce((acc, x) => [...acc, ...b.map(y => [x, y])], []);

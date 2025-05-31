@@ -2,7 +2,7 @@
 
 /**
  * ...
- * @namespace roofs
+ * @namespace builders.roofs
  */
 
 const roofBuilder = ({ lib, swLib }) => {
@@ -50,7 +50,7 @@ const roofBuilder = ({ lib, swLib }) => {
 
     /**
      * Builds a gable roof
-     * @memberof roofs
+     * @memberof builders.roofs
      * @instance
      * @param {Object} opts 
      * @param {number[]} opts.roofSpanSize - [x,y] size of area to be spanned
@@ -117,7 +117,7 @@ const roofBuilder = ({ lib, swLib }) => {
 
     /**
      * Builds a hip roof
-     * @memberof roofs
+     * @memberof builders.roofs
      * @instance
      * @param {Object} opts 
      * @param {number[]} opts.roofSpanSize - [x,y] size of area to be spanned
@@ -137,7 +137,7 @@ const roofBuilder = ({ lib, swLib }) => {
 
     /**
      * Builds a shed roof
-     * @memberof roofs
+     * @memberof builders.roofs
      * @instance
      * @param {Object} opts 
      * @param {number[]} opts.roofSpanSize - [x,y] size of area to be spanned

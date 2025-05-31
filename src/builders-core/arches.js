@@ -2,7 +2,7 @@
 
 /**
  * Builds circle-based arches. Input 2D profiles must be centred at (0, 0, 0)
- * @namespace arches
+ * @namespace builders.arches
  */
 
 const archBuilder = ({ lib }) => {
@@ -16,7 +16,7 @@ const archBuilder = ({ lib }) => {
   return {
     /**
      * Builds a one-centre (semicircular) arch.
-     * @memberof arches
+     * @memberof builders.arches
      * @instance
      * @param {Object} opts 
      * @param {number} opts.arcRadius - arc radius 
@@ -39,7 +39,7 @@ const archBuilder = ({ lib }) => {
     },
     /**
      * Builds a two-centre pointed arch.
-     * @memberof arches
+     * @memberof builders.arches
      * @instance
      * @param {Object} opts 
      * @param {number} opts.arcRadius - arc radius 

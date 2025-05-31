@@ -2,7 +2,7 @@
 
 /**
  * ...
- * @namespace entryways
+ * @namespace builders.entryways
  */
 
 const entrywayBuilder = ({ lib, swLib }) => {
@@ -21,7 +21,7 @@ const entrywayBuilder = ({ lib, swLib }) => {
     return {
         /**
          * Builds a gothic entryway.
-         * @memberof entryways
+         * @memberof builders.entryways
          * @instance
          * @param {Object} opts 
          * @param {number} opts.wallLength

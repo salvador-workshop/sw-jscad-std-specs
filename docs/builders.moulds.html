@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: foils</title>
+    <title>JSDoc: Namespace: moulds</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: foils</h1>
+    <h1 class="page-title">Namespace: moulds</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>foils</h2>
+        <h2>moulds</h2>
         
     
 </header>
@@ -37,7 +37,9 @@
     <div class="container-overview">
     
         
-            <div class="description">Builds "foil" shapes such as trefoils, quatrefoils, cinquefoils, etc. Input 2D profiles must be centred at (0, 0, 0)</div>
+            <div class="description">Builds positive mouldings and negative moulds for various ornaments.
+These would then be subtracted from a shape to produce the final result.
+Input 2D profiles must be centred at (0, 0, 0)</div>
         
 
         
@@ -72,7 +74,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_foils.js.html">builders-core/foils.js</a>, <a href="builders-core_foils.js.html#line3">line 3</a>
+        <a href="builders-core_moulds.js.html">builders-core/moulds.js</a>, <a href="builders-core_moulds.js.html#line3">line 3</a>
     </li></ul></dd>
     
 
@@ -111,7 +113,7 @@
     
 
     
-    <h4 class="name" id="cinquefoil"><span class="type-signature"></span>cinquefoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="circularEdge"><span class="type-signature"></span>circularEdge<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -119,7 +121,7 @@
 
 
 <div class="description">
-    Builds a cinquefoil opening using a given 2d cross-section profile
+    Positive moulding for a cylinder with the given 2D profile placed onto the edge.
 </div>
 
 
@@ -213,20 +215,20 @@
 
             
 
-            <td class="description last">radius of container circle</td>
+            <td class="description last">Cylinder radius.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>lobeRadiusType</code></td>
+                <td class="name"><code>height</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">number</span>
 
 
             
@@ -236,7 +238,30 @@
 
             
 
-            <td class="description last">"inSlice", "halfRadius", "mean"</td>
+            <td class="description last">Cylinder height.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>segments</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Cylinder height.</td>
         </tr>
 
     
@@ -259,30 +284,7 @@
 
             
 
-            <td class="description last">2D cross-section profile</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>cutCentre</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
+            <td class="description last">2D positive cross-section profile</td>
         </tr>
 
     
@@ -330,7 +332,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_foils.js.html">builders-core/foils.js</a>, <a href="builders-core_foils.js.html#line194">line 194</a>
+        <a href="builders-core_moulds.js.html">builders-core/moulds.js</a>, <a href="builders-core_moulds.js.html#line73">line 73</a>
     </li></ul></dd>
     
 
@@ -366,7 +368,7 @@
     
 
     
-    <h4 class="name" id="octofoil"><span class="type-signature"></span>octofoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="cuboidEdge"><span class="type-signature"></span>cuboidEdge<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -374,7 +376,7 @@
 
 
 <div class="description">
-    Builds an octofoil opening using a given 2d cross-section profile
+    Positive moulding for a cuboid with the given 2D profile placed onto all the side edges.
 </div>
 
 
@@ -452,13 +454,13 @@
 
         <tr>
             
-                <td class="name"><code>radius</code></td>
+                <td class="name"><code>size</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Array.&lt;number></span>
 
 
             
@@ -468,30 +470,7 @@
 
             
 
-            <td class="description last">radius of container circle</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lobeRadiusType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">"inSlice", "halfRadius", "mean"</td>
+            <td class="description last">size (x, y, z)</td>
         </tr>
 
     
@@ -514,30 +493,7 @@
 
             
 
-            <td class="description last">2D cross-section profile</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>cutCentre</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
+            <td class="description last">2D positive cross-section profile</td>
         </tr>
 
     
@@ -585,7 +541,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_foils.js.html">builders-core/foils.js</a>, <a href="builders-core_foils.js.html#line228">line 228</a>
+        <a href="builders-core_moulds.js.html">builders-core/moulds.js</a>, <a href="builders-core_moulds.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
@@ -621,7 +577,7 @@
     
 
     
-    <h4 class="name" id="quatrefoil"><span class="type-signature"></span>quatrefoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="cuboidOneEdge"><span class="type-signature"></span>cuboidOneEdge<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -629,7 +585,7 @@
 
 
 <div class="description">
-    Builds a quatrefoil opening using a given 2d cross-section profile
+    Builds a cuboid with given 2D profile placed on one edge.
 </div>
 
 
@@ -707,13 +663,13 @@
 
         <tr>
             
-                <td class="name"><code>radius</code></td>
+                <td class="name"><code>size</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Array.&lt;number></span>
 
 
             
@@ -723,30 +679,7 @@
 
             
 
-            <td class="description last">radius of container circle</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lobeRadiusType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">"inSlice", "halfRadius", "mean"</td>
+            <td class="description last">size (x, y, z)</td>
         </tr>
 
     
@@ -769,20 +702,20 @@
 
             
 
-            <td class="description last">2D cross-section profile</td>
+            <td class="description last">2D positive cross-section profile</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>cutCentre</code></td>
+                <td class="name"><code>alignment</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type">string</span>
 
 
             
@@ -792,7 +725,8 @@
 
             
 
-            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
+            <td class="description last">where to align when profile size differs from
+    base cuboid ('top' | 'middle' | 'bottom'). Defaults to 'middle'</td>
         </tr>
 
     
@@ -840,7 +774,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_foils.js.html">builders-core/foils.js</a>, <a href="builders-core_foils.js.html#line177">line 177</a>
+        <a href="builders-core_moulds.js.html">builders-core/moulds.js</a>, <a href="builders-core_moulds.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -876,7 +810,7 @@
     
 
     
-    <h4 class="name" id="sexfoil"><span class="type-signature"></span>sexfoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="sunkenPanelCirc"><span class="type-signature"></span>sunkenPanelCirc<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -884,7 +818,7 @@
 
 
 <div class="description">
-    Builds a sexfoil opening using a given 2d cross-section profile
+    Negative mould for a circular sunken panel, to be placed on a wall/ceiling surface
 </div>
 
 
@@ -978,30 +912,7 @@
 
             
 
-            <td class="description last">radius of container circle</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lobeRadiusType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">"inSlice", "halfRadius", "mean"</td>
+            <td class="description last">panel radius</td>
         </tr>
 
     
@@ -1024,30 +935,7 @@
 
             
 
-            <td class="description last">2D cross-section profile</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>cutCentre</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
+            <td class="description last">2D positive cross-section profile for edge</td>
         </tr>
 
     
@@ -1095,7 +983,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_foils.js.html">builders-core/foils.js</a>, <a href="builders-core_foils.js.html#line211">line 211</a>
+        <a href="builders-core_moulds.js.html">builders-core/moulds.js</a>, <a href="builders-core_moulds.js.html#line104">line 104</a>
     </li></ul></dd>
     
 
@@ -1131,7 +1019,7 @@
     
 
     
-    <h4 class="name" id="trefoil"><span class="type-signature"></span>trefoil<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="sunkenPanelRect"><span class="type-signature"></span>sunkenPanelRect<span class="signature">(opts)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1139,7 +1027,7 @@
 
 
 <div class="description">
-    Builds a trefoil opening using a given 2d cross-section profile
+    Negative mould for a rectangular sunken panel, to be placed on a wall/ceiling surface
 </div>
 
 
@@ -1217,13 +1105,13 @@
 
         <tr>
             
-                <td class="name"><code>radius</code></td>
+                <td class="name"><code>edge</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">Array.&lt;number></span>
 
 
             
@@ -1233,30 +1121,7 @@
 
             
 
-            <td class="description last">radius of container circle</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lobeRadiusType</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">"inSlice", "halfRadius", "mean"</td>
+            <td class="description last">size (x, y)</td>
         </tr>
 
     
@@ -1279,30 +1144,7 @@
 
             
 
-            <td class="description last">2D cross-section profile</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>cutCentre</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">if true, cuts a circular hole in centre of opening (only for 3D)</td>
+            <td class="description last">2D positive cross-section profile for edge</td>
         </tr>
 
     
@@ -1350,7 +1192,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builders-core_foils.js.html">builders-core/foils.js</a>, <a href="builders-core_foils.js.html#line160">line 160</a>
+        <a href="builders-core_moulds.js.html">builders-core/moulds.js</a>, <a href="builders-core_moulds.js.html#line93">line 93</a>
     </li></ul></dd>
     
 
@@ -1396,13 +1238,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="arches.html">arches</a></li><li><a href="builders.buttress.html">builders.buttress</a></li><li><a href="builders.columns.html">builders.columns</a></li><li><a href="builders.entryways.html">builders.entryways</a></li><li><a href="builders.roofs.html">builders.roofs</a></li><li><a href="builders.walls.html">builders.walls</a></li><li><a href="foils.html">foils</a></li><li><a href="geometry.html">geometry</a></li><li><a href="maths.html">maths</a></li><li><a href="moulds.html">moulds</a></li><li><a href="profiles.html">profiles</a></li><li><a href="superPrimitives.html">superPrimitives</a></li><li><a href="transform.html">transform</a></li><li><a href="trimFamilyAranea.html">trimFamilyAranea</a></li></ul><h3>Global</h3><ul><li><a href="global.html#measure">measure</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="builders.arches.html">builders.arches</a></li><li><a href="builders.buttress.html">builders.buttress</a></li><li><a href="builders.columns.html">builders.columns</a></li><li><a href="builders.entryways.html">builders.entryways</a></li><li><a href="builders.foils.html">builders.foils</a></li><li><a href="builders.moulds.html">builders.moulds</a></li><li><a href="builders.profiles.html">builders.profiles</a></li><li><a href="builders.roofs.html">builders.roofs</a></li><li><a href="builders.trimFamilyAranea.html">builders.trimFamilyAranea</a></li><li><a href="builders.walls.html">builders.walls</a></li><li><a href="utils.geometry.html">utils.geometry</a></li><li><a href="utils.maths.html">utils.maths</a></li><li><a href="utils.superPrimitives.html">utils.superPrimitives</a></li><li><a href="utils.transform.html">utils.transform</a></li></ul><h3>Global</h3><ul><li><a href="global.html#measure">measure</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 08:21:43 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sat May 31 2025 08:29:33 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -2,7 +2,7 @@
 
 /**
  * ...
- * @namespace superPrimitives
+ * @namespace utils.superPrimitives
  */
 
 //-----------
