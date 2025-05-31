@@ -10,7 +10,7 @@ const arrayCartesianProduct = (a, b) => a.reduce((acc, x) => [...acc, ...b.map(y
 const mathUtils = ({ lib, swLib }) => {
     const {
         INCHES_MM_FACTOR
-    } = swLib.constants;
+    } = swLib.core.constants;
 
     return {
         isEven: (n) => {

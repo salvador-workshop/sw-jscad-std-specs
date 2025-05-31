@@ -10,10 +10,9 @@ const roofBuilder = ({ lib, swLib }) => {
     const { triangle, cuboid } = lib.primitives;
     const { rotate, align, translate, mirror } = lib.transforms;
     const { extrudeLinear } = lib.extrusions;
-    const { colorize } = lib.colors;
     const { measureDimensions } = lib.measurements;
 
-    const { moulds } = swLib;
+    const { moulds } = swLib.builders;
 
     const bottomTrim = ({ axisLength, rafterLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
@@ -175,10 +174,10 @@ const roofBuilder = ({ lib, swLib }) => {
         const roofHypot = basicRoofSpecs[roofAxis].shedRoofHypot;
 
         const baseTriangle = triangle({ type: 'SAS', values: [roofSpan, Math.PI / 2, roofHeight] });
-        const basePrism = colorize(swLib.colors.translucentYellow, align({ modes: ['center', 'center', 'min'] }, rotate(
+        const basePrism = align({ modes: ['center', 'center', 'min'] }, rotate(
             [Math.PI / 2, 0, Math.PI / 2],
             extrudeLinear({ height: roofSpanSize[mainAxisIdx] }, baseTriangle)
-        )));
+        ));
 
         let roofSupport = align({ modes: ['min', 'min', 'min'] }, basePrism);
         if (!roofOpts.includes('solid')) {
@@ -198,7 +197,7 @@ const roofBuilder = ({ lib, swLib }) => {
 
         // Roof Assembly
 
-        const trFamily = swLib[`trimFamily${trimFamily}`].build({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
+        const trFamily = swLib.builders[`trimFamily${trimFamily}`].build({ unitHeight: trimUnitSize[1], unitDepth: trimUnitSize[0] });
         const bottomTrimProfile = trFamily.crown.extraSmall;
 
         const bTrimRafterSpecs = [2 * trimUnitSize[0] + roofHypot, 2 * trimUnitSize[0] + axisSpan];

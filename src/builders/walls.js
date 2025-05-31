@@ -10,10 +10,9 @@ const wallBuilder = ({ lib, swLib }) => {
     const { align } = lib.transforms
     const { cuboid } = lib.primitives
     const { measureDimensions, measureBoundingBox } = lib.measurements;
-    const {
-        moulds,
-        trimFamilyAranea,
-    } = swLib
+
+    const { moulds, trimFamilyAranea, } = swLib.builders
+    const { PHI_INV } = swLib.core.constants
 
     const crownTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
@@ -105,7 +104,7 @@ const wallBuilder = ({ lib, swLib }) => {
 
             const tFamilyAranea = trimFamilyAranea.build({ unitHeight: opts.trimUnitHeight, unitDepth: opts.trimUnitDepth });
 
-            const dadoHt = opts.dadoHeight || opts.height * (1 - swLib.constants.PHI_INV);
+            const dadoHt = opts.dadoHeight || opts.height * (1 - PHI_INV);
             // console.log(`    dadoHt = ${JSON.stringify(dadoHt)}`);
             // has to be adjusted or it clips through trimwork
             const dadoHtAdj = dadoHt - (opts.trimUnitHeight * (dadoUnits + 0.5))
