@@ -13,7 +13,7 @@ const wallBuilder = ({ lib, swLib }) => {
     const {
         moulds,
         trimFamilyAranea,
-    } = swLib
+    } = swLib.builders
 
     const crownTrim = ({ totalThickness, totalLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
