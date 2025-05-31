@@ -10,11 +10,9 @@ const roofBuilder = ({ lib, swLib }) => {
     const { triangle, cuboid } = lib.primitives;
     const { rotate, align, translate, mirror } = lib.transforms;
     const { extrudeLinear } = lib.extrusions;
-    const { colorize } = lib.colors;
     const { measureDimensions } = lib.measurements;
 
     const { moulds } = swLib.builders;
-    const { colors } = swLib.ux;
 
     const bottomTrim = ({ axisLength, rafterLength, trimProfile }) => {
         const profileDims = measureDimensions(trimProfile);
@@ -176,10 +174,10 @@ const roofBuilder = ({ lib, swLib }) => {
         const roofHypot = basicRoofSpecs[roofAxis].shedRoofHypot;
 
         const baseTriangle = triangle({ type: 'SAS', values: [roofSpan, Math.PI / 2, roofHeight] });
-        const basePrism = colorize(colors.translucentYellow, align({ modes: ['center', 'center', 'min'] }, rotate(
+        const basePrism = align({ modes: ['center', 'center', 'min'] }, rotate(
             [Math.PI / 2, 0, Math.PI / 2],
             extrudeLinear({ height: roofSpanSize[mainAxisIdx] }, baseTriangle)
-        )));
+        ));
 
         let roofSupport = align({ modes: ['min', 'min', 'min'] }, basePrism);
         if (!roofOpts.includes('solid')) {
