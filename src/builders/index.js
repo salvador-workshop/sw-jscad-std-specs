@@ -9,19 +9,19 @@ const init = ({ lib, swLib }) => {
     builders.entryways = require('./entryways').init({
         lib,
         swLib: {
-            ...swLib, builders: { ...swLib.builders, builders }
+            ...swLib, builders: { ...swLib.builders, ...builders }
         }
     });
     builders.roofs = require('./roofs').init({
         lib,
         swLib: {
-            ...swLib, builders: { ...swLib.builders, builders }
+            ...swLib, builders: { ...swLib.builders, ...builders }
         }
     });
     builders.buttress = require('./buttress').init({
         lib,
         swLib: {
-            ...swLib, builders: { ...swLib.builders, builders }
+            ...swLib, builders: { ...swLib.builders, ...builders }
         }
     });
 
