@@ -1,24 +1,24 @@
 # packages
 
-## MAIN PACKAGES
+## CORE PACKAGES
 
 ### sw-jscad
 
 JSCAD library for parametric modelling of architectural components
 
-### sw-jscad-viewer
+### sw-jscad-std-specs
 
-3D viewer using JSCAD and sw-jscad
-
-## SUB-PACKAGES
+Definitions for building elements and various standards/specs
 
 ### sw-jscad-ui
 
 UX, layouts, etc
 
-### sw-jscad-std-specs
+### sw-jscad-families
 
-Definitions for building elements and various standards/specs
+Designs groups of related models
+
+## SUB-PACKAGES
 
 ### sw-jscad-builders
 
