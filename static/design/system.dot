@@ -1,0 +1,24 @@
+digraph {
+    node [shape = box;];
+    
+    swJscad -> swJscadUi;
+    swJscad -> swJscadBuilders;
+    swJscad -> swJscadFactory;
+    swJscad -> swJscadPrefab;
+    
+    swJscadStdSpecs -> swJscadUi;
+    swJscadStdSpecs -> swJscadBuilders;
+    swJscadStdSpecs -> swJscadFactory;
+    swJscadStdSpecs -> swJscadPrefab;
+    
+    swJscadBuilders -> swJscadFactory;
+    swJscadBuilders -> swJscadPrefab;
+    
+    swJscad [label = "sw-jscad";color = blue;];
+    
+    swJscadUi [label = "sw-jscad-ui";];
+    swJscadBuilders [label = "sw-jscad-builders";];
+    swJscadFactory [label = "sw-jscad-factory";];
+    swJscadPrefab [label = "sw-jscad-prefab";];
+    swJscadStdSpecs [label = "sw-jscad-std-specs";];
+}
