@@ -1,4 +1,5 @@
 digraph {
+    label = "\nsw-jscad\nPackage Relationships";
     node [shape = box;];
     
     jscad -> swJscad [color = red;];
@@ -8,8 +9,9 @@ digraph {
         color = black;
         bgcolor = grey90;
         penwidth = 2;
+        node [bgcolor = white;];
         
-        swJscadStdSpecs -> swJscad [color = red;];
+        swJscadStdSpecs -> swJscad [color = mediumpurple;];
         
         swJscad -> swJscadUi [color = blue;];
         swJscad -> swJscadFamilies [color = blue;];
@@ -19,21 +21,17 @@ digraph {
     jscad -> swJscadFamilies [color = red;];
     jscad -> swJscadBuilders [color = red;];
     jscad -> swJscadFactory [color = red;];
-    jscad -> swJscadPrefab [color = red;];
     
     swJscad -> swJscadBuilders [color = blue;];
     swJscad -> swJscadFactory [color = blue;];
-    swJscad -> swJscadPrefab [color = blue;];
     
     swJscadFamilies -> swJscadBuilders [color = darkgreen;];
     swJscadFamilies -> swJscadFactory [color = darkgreen;];
-    swJscadFamilies -> swJscadPrefab [color = darkgreen;];
     
     swJscadBuilders -> swJscadFactory [color = orange;];
-    swJscadBuilders -> swJscadPrefab [color = orange;];
     
     jscad [shape = box3d;color = red;];
-    swJscadStdSpecs [shape = cylinder;label = "sw-jscad-std-specs";color = red;];
+    swJscadStdSpecs [shape = cylinder;label = "sw-jscad-std-specs";color = mediumpurple;];
     
     swJscad [shape = box3d;label = "sw-jscad";color = blue;];
     
@@ -43,5 +41,4 @@ digraph {
     swJscadBuilders [label = "sw-jscad-builders";color = orange;];
     
     swJscadFactory [label = "sw-jscad-factory";];
-    swJscadPrefab [label = "sw-jscad-prefab";];
 }

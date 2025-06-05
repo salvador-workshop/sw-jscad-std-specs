@@ -27,7 +27,3 @@ Tools and functions for building assemblies
 ### sw-jscad-factory
 
 Designs various objects and assemblies
-
-### sw-jscad-prefab
-
-Designs buildings and construction-related assemblies
