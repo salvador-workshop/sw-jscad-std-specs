@@ -13,17 +13,17 @@ function SwError(message) {
     this.stack = (new Error()).stack;
 }
 
-function SwInputError(message) {
-    this.name = 'SwInputError';
+function SwInvalidInput(message) {
+    this.name = 'SwInvalidInput';
     this.message = message;
     this.stack = (new Error()).stack;
 }
 
-SwInputError.prototype = new Error;
+SwInvalidInput.prototype = new Error;
 
 const errors = {
     SwError,
-    SwInputError,
+    SwInvalidInput,
 }
 
 module.exports = errors;
