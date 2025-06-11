@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: constants.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,37 +17,47 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: constants.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>sw-jscad-std-specs</h1>
-<p>Standards and specs for Salvador Workshop's JSCAD utilities and toolkit.</p></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict"
+
+/**
+ * ...
+ * @namespace core.constants
+ */
+
+const constants = {
+    /**
+     * Inches / Millimetre conversion rate
+     * @memberof core.constants
+     * @constant {number}
+     */
+    INCHES_MM_FACTOR: 25.4,
+    /**
+     * Golden ratio
+     * @memberof core.constants
+     * @constant {number}
+     */
+    PHI: 1.6180339887,
+    /**
+     * Golden ratio inverse
+     * @memberof core.constants
+     * @constant {number}
+     */
+    PHI_INV: 0.6180339887,
+}
+
+module.exports = constants;
+</code></pre>
+        </article>
     </section>
-
-
 
 
 

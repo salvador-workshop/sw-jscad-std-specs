@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: standards.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,37 +17,41 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: standards.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>sw-jscad-std-specs</h1>
-<p>Standards and specs for Salvador Workshop's JSCAD utilities and toolkit.</p></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict"
+
+/**
+ * ...
+ * @namespace core.standards
+ */
+
+const pegboard = {
+    PEGBOARD_SPACING: 1,
+    PEGBOARD_HOLE_DIAM: 1,
+}
+
+const gridfinity = {
+    GRIDFINITY_SPACING: 42,
+    GRIDFINITY_RAIL_WIDTH: 7,
+}
+
+const standards = {
+    pegboard,
+    gridfinity,
+}
+
+module.exports = standards;
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
