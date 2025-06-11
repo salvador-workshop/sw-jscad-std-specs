@@ -13,7 +13,7 @@ const init = ({ lib }) => {
     }
 
     core.internals = require('./internals').init({ lib, swLib: core });
-    core.specifications = require('./specifications').init({ lib, swLib: core });
+    core.specifications = require('./specifications');
 
     return core;
 }
