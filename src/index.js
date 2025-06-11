@@ -1,10 +1,9 @@
+"use strict"
+
 const coreModule = require('./core');
 
 const init = ({ lib }) => {
-    const swJscad = {
-        core: coreModule.init({ lib }),
-    }
-    return swJscad;
+    return coreModule.init({ lib });
 }
 
 module.exports = { init };
