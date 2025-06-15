@@ -8,6 +8,12 @@
 const pegboard = {
     PEGBOARD_SPACING: 1,
     PEGBOARD_HOLE_DIAM: 1,
+    MICRO_PEGBOARD_SPACING: 1,
+    MICRO_PEGBOARD_HOLE_DIAM: 1,
+}
+
+const slotwall = {
+    SLOTWALL_SPACING: 1,
 }
 
 const gridfinity = {
@@ -17,6 +23,7 @@ const gridfinity = {
 
 const standards = {
     pegboard,
+    slotwall,
     gridfinity,
 }
 
