@@ -1,19 +1,21 @@
 "use strict"
 
+const constants = require('../constants')
+const craftStd = require('./std-crafts')
+const lumberStd = require('./std-lumber')
+const paperStd = require('./std-paper')
+const tileStd = require('./std-tiles')
+
 /**
  * ...
  * @namespace core.standards
  */
 
 const pegboard = {
-    PEGBOARD_SPACING: 1,
-    PEGBOARD_HOLE_DIAM: 1,
-    MICRO_PEGBOARD_SPACING: 1,
-    MICRO_PEGBOARD_HOLE_DIAM: 1,
-}
-
-const slotwall = {
-    SLOTWALL_SPACING: 1,
+    PEGBOARD_SPACING: constants.INCHES_MM_FACTOR,
+    PEGBOARD_HOLE_DIAM: constants.INCHES_MM_FACTOR * (7 / 32),
+    MICRO_PEGBOARD_SPACING: constants.INCHES_MM_FACTOR / 2,
+    MICRO_PEGBOARD_HOLE_DIAM: constants.INCHES_MM_FACTOR / 8,
 }
 
 const gridfinity = {
@@ -23,8 +25,11 @@ const gridfinity = {
 
 const standards = {
     pegboard,
-    slotwall,
     gridfinity,
+    crafts: craftStd,
+    lumber: lumberStd,
+    paper: paperStd,
+    tiles: tileStd,
 }
 
 module.exports = standards;
