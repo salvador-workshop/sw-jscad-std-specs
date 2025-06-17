@@ -9,9 +9,9 @@ const init = ({ lib }) => {
     const core = {
         constants: require('./constants'),
         errors: require('./errors'),
-        standards: require('./standards'),
     }
 
+    core.standards = require('./standards').init({ lib, swLib: core });
     core.internals = require('./internals').init({ lib, swLib: core });
     core.specifications = require('./specifications');
 

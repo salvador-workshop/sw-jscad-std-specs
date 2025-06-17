@@ -24,6 +24,12 @@ const constants = {
      * @constant {number}
      */
     PHI_INV: 0.6180339887,
+    /**
+     * Ratio of equilateral triangle's height to its side length
+     * @memberof core.constants
+     * @constant {number}
+     */
+    EQUI_TRIANGLE_HEIGHT_FACTOR: 0.86603
 }
 
 module.exports = constants;
