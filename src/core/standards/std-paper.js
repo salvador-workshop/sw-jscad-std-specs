@@ -1,7 +1,12 @@
 "use strict"
 
-const paperStd = {
-
+const paperStd = ({ lib, swLib }) => {
+    return {
+        A4: {},
+        LETTER: {},
+        TABLOID: {},
+        LEDGER: {},
+    }
 }
 
-module.exports = paperStd
+module.exports = { init: paperStd };

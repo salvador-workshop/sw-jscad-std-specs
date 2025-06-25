@@ -1,7 +1,9 @@
 "use strict"
 
-const tileStd = {
+const tileStd = ({ lib, swLib }) => {
+    return {
 
+    }
 }
 
-module.exports = tileStd
+module.exports = { init: tileStd };

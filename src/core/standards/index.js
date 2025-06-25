@@ -28,10 +28,10 @@ const standards = ({ lib, swLib }) => {
     return {
         pegboard,
         gridfinity,
-        crafts: craftStd,
-        lumber: lumberStd,
-        paper: paperStd,
-        tiles: tileStd,
+        crafts: craftStd.init({ lib, swLib }),
+        lumber: lumberStd.init({ lib, swLib }),
+        paper: paperStd.init({ lib, swLib }),
+        tiles: tileStd.init({ lib, swLib }),
     }
 }
 

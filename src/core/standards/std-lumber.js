@@ -15,10 +15,16 @@ const numNames = {
     12: 'TWELVE',
 }
 
-const lumberStd = {
-    TYP_PEG_DIAM: 1,
-    TYP_PEG_LENGTH: 1,
-    TYP_BISCUIT_RADII: [1, 1],
+const widths = [1, 2, 3, 4, 6, 8, 10, 12]
+
+const depths = [1, 2, 3, 4]
+
+const lumberStd = ({ lib, swLib }) => {
+    return {
+        TYP_PEG_DIAM: 1,
+        TYP_PEG_LENGTH: 1,
+        TYP_BISCUIT_RADII: [1, 1],
+    }
 }
 
-module.exports = lumberStd
+module.exports = { init: lumberStd };
