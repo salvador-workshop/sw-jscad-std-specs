@@ -2,10 +2,10 @@
 
 const paperStd = ({ lib, swLib }) => {
     return {
-        A4: {},
-        LETTER: {},
-        TABLOID: {},
-        LEDGER: {},
+        A4: [999, 999],
+        LETTER: [999, 999],
+        TABLOID: [999, 999],
+        LEDGER: [999, 999],
     }
 }
 

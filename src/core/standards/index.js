@@ -2,6 +2,7 @@
 
 const craftStd = require('./std-crafts')
 const lumberStd = require('./std-lumber')
+const masonryStd = require('./std-masonry')
 const paperStd = require('./std-paper')
 const tileStd = require('./std-tiles')
 
@@ -11,13 +12,13 @@ const tileStd = require('./std-tiles')
  */
 
 const standards = ({ lib, swLib }) => {
-    const { constants } = swLib.core
+    const { constants, maths } = swLib.core
 
     const pegboard = {
-        PEGBOARD_SPACING: constants.INCHES_MM_FACTOR,
-        PEGBOARD_HOLE_DIAM: constants.INCHES_MM_FACTOR * (7 / 32),
-        MICRO_PEGBOARD_SPACING: constants.INCHES_MM_FACTOR / 2,
-        MICRO_PEGBOARD_HOLE_DIAM: constants.INCHES_MM_FACTOR / 8,
+        PEGBOARD_SPACING: maths.inchesToMm(1),
+        PEGBOARD_HOLE_DIAM: maths.inchesToMm(7 / 32),
+        MICRO_PEGBOARD_SPACING: maths.inchesToMm(1 / 2),
+        MICRO_PEGBOARD_HOLE_DIAM: maths.inchesToMm(1 / 8),
     }
 
     const gridfinity = {
@@ -30,6 +31,7 @@ const standards = ({ lib, swLib }) => {
         gridfinity,
         crafts: craftStd.init({ lib, swLib }),
         lumber: lumberStd.init({ lib, swLib }),
+        masonry: masonryStd.init({ lib, swLib }),
         paper: paperStd.init({ lib, swLib }),
         tiles: tileStd.init({ lib, swLib }),
     }
