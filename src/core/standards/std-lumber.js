@@ -56,7 +56,7 @@ const lumberStd = ({ lib, swLib }) => {
 
     const computedSizes = {}
     const lumberSizes = maths.arrayCartesianProduct(depths, widths)
-    lumberSizes.array.forEach(lumberDims => {
+    lumberSizes.forEach(lumberDims => {
         const newPropName = `${lumberDims[0]}_BY_${lumberDims[1]}`;
         const newVal = {
             depth: baseLumberSizes[`${lumberDims[0]}`].actual,
