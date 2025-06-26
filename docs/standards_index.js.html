@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: specifications</title>
+    <title>JSDoc: Source: standards/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,100 +17,58 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: specifications</h1>
+    <h1 class="page-title">Source: standards/index.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            <span class="ancestors"><a href="core.html">core</a>.</span>specifications</h2>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict"
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">...</div>
-        
+const craftStd = require('./std-crafts')
+const lumberStd = require('./std-lumber')
+const masonryStd = require('./std-masonry')
+const paperStd = require('./std-paper')
+const tileStd = require('./std-tiles')
 
-        
+/**
+ * ...
+ * @namespace core.standards
+ */
 
+const standards = ({ lib, swLib }) => {
+    const { constants, maths } = swLib.core
 
-<dl class="details">
+    const pegboard = {
+        PEGBOARD_SPACING: maths.inchesToMm(1),
+        PEGBOARD_HOLE_DIAM: maths.inchesToMm(7 / 32),
+        MICRO_PEGBOARD_SPACING: maths.inchesToMm(1 / 2),
+        MICRO_PEGBOARD_HOLE_DIAM: maths.inchesToMm(1 / 8),
+    }
 
-    
+    const gridfinity = {
+        GRIDFINITY_SPACING: 42,
+        GRIDFINITY_RAIL_WIDTH: 7,
+    }
 
-    
+    return {
+        pegboard,
+        gridfinity,
+        crafts: craftStd.init({ lib, swLib }),
+        lumber: lumberStd.init({ lib, swLib }),
+        masonry: masonryStd.init({ lib, swLib }),
+        paper: paperStd.init({ lib, swLib }),
+        tiles: tileStd.init({ lib, swLib }),
+    }
+}
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="specifications.js.html">specifications.js</a>, <a href="specifications.js.html#line13">line 13</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = { init: standards };
+</code></pre>
+        </article>
+    </section>
 
 
 
