@@ -1,5 +1,15 @@
 "use strict"
 
+/*
+ * Vanilla JS doesn't have true enum support. But this gets us partially there:
+ * const Direction = {
+ *   Up: 'Up',
+ *   Down: 'Down',
+ *   Left: 'Left',
+ *   Right: 'Right'
+ * };
+ */
+
 /**
  * ...
  * @namespace core.specifications
