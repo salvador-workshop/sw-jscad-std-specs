@@ -62,6 +62,9 @@ const lumberStd = ({ lib, swLib }) => {
 
         const newPropName = `${depthDim.name}_BY_${widthDim.name}`;
         const newVal = {
+            name: newPropName,
+            nomDepth: depthDim.nominal,
+            nomWidth: widthDim.nominal,
             depth: depthDim.actual,
             width: widthDim.actual,
         }
@@ -69,10 +72,12 @@ const lumberStd = ({ lib, swLib }) => {
     });
 
     return {
-        TYP_PEG_DIAM: 1,
-        TYP_PEG_LENGTH: 1,
-        TYP_BISCUIT_RADII: [1, 1],
-        ...computedSizes,
+        aux: {
+            TYP_PEG_DIAM: 1,
+            TYP_PEG_LENGTH: 1,
+            TYP_BISCUIT_RADII: [1, 1],
+        },
+        dimensional: computedSizes,
     }
 }
 

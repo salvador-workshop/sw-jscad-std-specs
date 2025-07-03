@@ -1,5 +1,29 @@
 # internals
 
+## Core
+
+- A1 to A6 -- Axis directions
+    + A1: `+X, +Y, +Z`
+    + A2: `+X, +Y, +Z`
+    + A3: `+X, +Y, +Z`
+    + A4: `+X, +Y, +Z`
+    + A5: `+X, +Y, +Z`
+    + A6: `+X, +Y, +Z`
+- Q1 to Q4 -- Quadrants
+    + Q1: `+X, +Y`
+    + Q2: `-X, +Y`
+    + Q3: `-X, -Y`
+    + Q4: `+X, -Y`
+- O1 to O8 -- Octants
+    + O1: `+X, +Y, +Z`
+    + O2: `+X, +Y, +Z`
+    + O3: `+X, +Y, +Z`
+    + O4: `+X, +Y, +Z`
+    + O5: `+X, +Y, +Z`
+    + O6: `+X, +Y, +Z`
+    + O7: `+X, +Y, +Z`
+    + O8: `+X, +Y, +Z`
+
 ## Rectangle Keypoints
 
 - I0 -- Centre
@@ -18,6 +42,12 @@
     + E2: `-X, +Y`
     + E3: `-X, -Y`
     + E4: `+X, -Y`
+- V1 to V??? -- Vectors
+    + V1: face
+    + V2: primary_attachment
+    + V3: secondary_attachment
+    + V4: primary_accessory
+    + V5: secondary_accessory
 
 ## Cuboid Keypoints
 
@@ -60,3 +90,9 @@
     + F4: `+X, +Y, +Z`
     + F5: `+X, +Y, +Z`
     + F6: `+X, +Y, +Z`
+- V1 to V??? -- Vectors
+    + V1: face
+    + V2: primary_attachment
+    + V3: secondary_attachment
+    + V4: primary_accessory
+    + V5: secondary_accessory
