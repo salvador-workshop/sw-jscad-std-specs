@@ -27,9 +27,11 @@ const standards = ({ lib, swLib }) => {
     }
 
     const swDefaults = {
+        PANEL_THICKNESS_XS: maths.inchesToMm(2 / 64),  // 1/32"
         PANEL_THICKNESS_SM: maths.inchesToMm(3 / 64),
-        PANEL_THICKNESS_MD: maths.inchesToMm(1 / 16),
+        PANEL_THICKNESS_MD: maths.inchesToMm(4 / 64),   // 1/16"
         PANEL_THICKNESS_LG: maths.inchesToMm(5 / 64),
+        PANEL_THICKNESS_XL: maths.inchesToMm(6 / 64),   // 3/32"
     }
 
     return {
