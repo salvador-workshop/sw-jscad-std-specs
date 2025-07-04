@@ -26,9 +26,16 @@ const standards = ({ lib, swLib }) => {
         GRIDFINITY_RAIL_WIDTH: 7,
     }
 
+    const swDefaults = {
+        PANEL_THICKNESS_SM: maths.inchesToMm(3 / 64),
+        PANEL_THICKNESS_MD: maths.inchesToMm(1 / 16),
+        PANEL_THICKNESS_LG: maths.inchesToMm(5 / 64),
+    }
+
     return {
         pegboard,
         gridfinity,
+        swDefaults,
         crafts: craftStd.init({ lib, swLib }),
         lumber: lumberStd.init({ lib, swLib }),
         masonry: masonryStd.init({ lib, swLib }),
