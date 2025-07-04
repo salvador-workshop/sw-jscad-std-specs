@@ -62,17 +62,56 @@ const lumberStd = ({ lib, swLib }) => {
 
         const newPropName = `${depthDim.name}_BY_${widthDim.name}`;
         const newVal = {
+            name: newPropName,
+            nomDepth: depthDim.nominal,
+            nomWidth: widthDim.nominal,
             depth: depthDim.actual,
             width: widthDim.actual,
         }
         computedSizes[newPropName] = newVal
     });
 
+    const plywood = {
+        thicknesses: {
+            EIGHTH: {
+                nominal: maths.inchesToMm(1 / 8),
+                actual: maths.inchesToMm(7 / 64),
+            },
+            QUARTER: {
+                nominal: maths.inchesToMm(1 / 4),
+                actual: maths.inchesToMm(7 / 32),
+            },
+            THREE_SEVENTHS: {
+                nominal: maths.inchesToMm(3 / 7),
+                actual: maths.inchesToMm(11 / 32),
+            },
+            HALF: {
+                nominal: maths.inchesToMm(1 / 2),
+                actual: maths.inchesToMm(15 / 32),
+            },
+            FIVE_EIGHTHS: {
+                nominal: maths.inchesToMm(5 / 8),
+                actual: maths.inchesToMm(19 / 32),
+            },
+            THREE_QUARTERS: {
+                nominal: maths.inchesToMm(3 / 4),
+                actual: maths.inchesToMm(23 / 32),
+            },
+        },
+        SHEET_LENGTH_STD: maths.inchesToMm(96),
+        SHEET_WIDTH_STD: maths.inchesToMm(48),
+        SHEET_LENGTH_SM: maths.inchesToMm(48),
+        SHEET_WIDTH_SM: maths.inchesToMm(24),
+    }
+
     return {
-        TYP_PEG_DIAM: 1,
-        TYP_PEG_LENGTH: 1,
-        TYP_BISCUIT_RADII: [1, 1],
-        ...computedSizes,
+        aux: {
+            TYP_PEG_DIAM: 1,
+            TYP_PEG_LENGTH: 1,
+            TYP_BISCUIT_RADII: [1, 1],
+        },
+        dimensional: computedSizes,
+        plywood,
     }
 }
 

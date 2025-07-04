@@ -29,8 +29,8 @@ const axes = {
 
 const axialDirections = {
     posX: { id: 0, desc: 'towards +X' },
-    posY: { id: 1, desc: 'towards +Y' },
-    negX: { id: 2, desc: 'towards -X' },
+    negX: { id: 1, desc: 'towards -X' },
+    posY: { id: 2, desc: 'towards +Y' },
     negY: { id: 3, desc: 'towards -Y' },
     posZ: { id: 4, desc: 'towards +Z' },
     negZ: { id: 5, desc: 'towards -Z' },
@@ -59,6 +59,7 @@ const octants = {
 
 // boxKeypoints: box corners, midpoints of edges, midpoints of box faces
 const boxKeypoints = {
+    internal0: { id: 26, desc: 'centre' },
     corner1: { id: 0, desc: 'corner (+X, +Y, +Z)' },
     corner2: { id: 1, desc: 'corner (+X, -Y, +Z)' },
     corner3: { id: 2, desc: 'corner (-X, -Y, +Z)' },
@@ -69,23 +70,22 @@ const boxKeypoints = {
     corner8: { id: 7, desc: 'corner (-X, +Y, -Z)' },
     edge1: { id: 8, desc: 'midpoint of edge (X axis, +Y, +Z)' },
     edge2: { id: 9, desc: 'midpoint of edge (X axis, -Y, +Z)' },
-    edge3: { id: 10, desc: 'midpoint of edge (X axis, +Y, -Z)' },
-    edge4: { id: 11, desc: 'midpoint of edge (X axis, -Y, -Z)' },
+    edge3: { id: 10, desc: 'midpoint of edge (X axis, -Y, -Z)' },
+    edge4: { id: 11, desc: 'midpoint of edge (X axis, +Y, -Z)' },
     edge5: { id: 12, desc: 'midpoint of edge (Y axis, +X, +Z)' },
     edge6: { id: 13, desc: 'midpoint of edge (Y axis, -X, +Z)' },
-    edge7: { id: 14, desc: 'midpoint of edge (Y axis, +X, -Z)' },
-    edge8: { id: 15, desc: 'midpoint of edge (Y axis, -X, -Z)' },
+    edge7: { id: 14, desc: 'midpoint of edge (Y axis, -X, -Z)' },
+    edge8: { id: 15, desc: 'midpoint of edge (Y axis, +X, -Z)' },
     edge9: { id: 16, desc: 'midpoint of edge (Z axis, +X, +Y)' },
     edge10: { id: 17, desc: 'midpoint of edge (Z axis, +X, -Y)' },
     edge11: { id: 18, desc: 'midpoint of edge (Z axis, -X, -Y)' },
     edge12: { id: 19, desc: 'midpoint of edge (Z axis, -X, +Y)' },
     face1: { id: 20, desc: `centre of face (${axialDirections.posX.desc})` },
-    face2: { id: 21, desc: `centre of face (${axialDirections.posY.desc})` },
-    face3: { id: 22, desc: `centre of face (${axialDirections.negX.desc})` },
+    face3: { id: 21, desc: `centre of face (${axialDirections.negX.desc})` },
+    face2: { id: 22, desc: `centre of face (${axialDirections.posY.desc})` },
     face4: { id: 23, desc: `centre of face (${axialDirections.negY.desc})` },
     face5: { id: 24, desc: `centre of face (${axialDirections.posZ.desc})` },
     face6: { id: 25, desc: `centre of face (${axialDirections.negZ.desc})` },
-    internal0: { id: 26, desc: 'centre' },
 }
 
 const specifications = {
